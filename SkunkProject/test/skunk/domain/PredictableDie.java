@@ -5,22 +5,20 @@ public class PredictableDie extends Die
 
 	private int[] theRolls;
 	private int nextInt;
-	private int lastRoll;
 
+
+	
 	public PredictableDie(int[] is)
 	{
 		this.theRolls = is;
-		this.nextInt = 0;
+		this.roll();
 	}
 
 	public void roll()
 	{
-		this.lastRoll = this.theRolls[this.nextInt];
+		this.nextInt=0;
+		this.lastRoll = 1;
 	}
 
-	public int getLastRoll() 
-	{
-		return lastRoll;
-	}
 
 }
