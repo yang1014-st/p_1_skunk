@@ -22,13 +22,14 @@ class TestPredictableDice
 	@Test
 	void test_PD_1_2_3_1()
 	{
-		fail();
-//		PredictableDice dice = new PredictableDice ();
-//		assertEquals(2,dice.getLastRoll());
-//		dice.roll();
-//		assertEquals(4,dice.getLastRoll());
-//		dice.roll();
-//		assertEquals(6,dice.getLastRoll());
+		PredictableDice dice = new PredictableDice ();
+		assertEquals(2,dice.getLastRoll());
+		dice.roll();
+		assertEquals(4,dice.getLastRoll());
+		dice.roll();
+		assertEquals(6,dice.getLastRoll());
+		dice.roll();
+		assertEquals(2,dice.getLastRoll());
  
 	}
 
