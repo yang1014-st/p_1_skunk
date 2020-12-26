@@ -16,9 +16,9 @@ public class Dice
 	// Instance fields (variables) may be declared anywhere in class body
 	// Convention: put at top
 
-	private int lastRoll;
-	private Die die1;
-	private Die die2;
+	protected int lastRoll;
+	protected Die die1;
+	protected Die die2;
 
 	// Constructors (object initializers) also can be declared anywhere
 	// Convention: after instance fields/variables
