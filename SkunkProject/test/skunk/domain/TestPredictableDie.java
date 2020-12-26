@@ -8,7 +8,7 @@ class TestPredictableDie
 {
 
 	@Test
-	void test()
+	void test_PD_1_2_3()
 	{
 		fail("Not yet implemented");
 	}
