@@ -8,7 +8,11 @@ class TestDice {
 
 	@Test
 	void test_predictable_dice() {
-		fail("Not yet implemented");
+		PredictableDie die1 = new PredictableDie();
+		PredictableDie die2 = new PredictableDie();
+		Dice dice = new Dice (die1, die2);
+		dice.roll();
+		assertEquals(2, dice.lastRoll);
 	}
 
 }
