@@ -18,7 +18,9 @@ public class TestDie
 	@Test
 	public void test_die_not_equal_to_0()
 	{
-		fail();
+		Die die = new Die();
+		die.roll();
+		assertFalse(die.lastRoll==0);
 	}
 
 
