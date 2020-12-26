@@ -20,7 +20,7 @@ class TestPredictableDie
 	}
 	
 	@Test
-	void test_PD_1_2_3_1()
+	void test_PD_1_2_3_1() 
 	{
 		
 		PredictableDie die = new PredictableDie();
