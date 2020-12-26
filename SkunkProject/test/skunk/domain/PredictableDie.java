@@ -14,6 +14,7 @@ public class PredictableDie extends Die
 		else {
 			this.setLastRoll(testRoll+1);
 		}
+		testRoll++;
 	}
 
 	private void setLastRoll(int i)
