@@ -1,6 +1,6 @@
 package skunk.domain;
 
-public class PredictableDie 
+public class PredictableDie extends Die
 {
 
 	private int[] theRolls;
