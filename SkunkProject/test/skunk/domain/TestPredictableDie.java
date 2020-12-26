@@ -15,6 +15,8 @@ class TestPredictableDie
 		assertEquals(1,die.getLastRoll());
 		die.roll();
 		assertEquals(2,die.getLastRoll());
+		die.roll();
+		assertEquals(3,die.getLastRoll());
 	}
 
 }
