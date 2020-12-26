@@ -8,9 +8,9 @@ public class TestDie
 {
 
 	@Test
-	public void test()
+	public void test_die_not_equal_to_7()
 	{
-		fail("Not yet implemented");
+		fail();
 	}
 
 }
