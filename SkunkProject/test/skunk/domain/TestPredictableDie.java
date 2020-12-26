@@ -13,8 +13,8 @@ class TestPredictableDie
 		PredictableDie die = new PredictableDie();
 		die.roll();
 		assertEquals(1,die.getLastRoll());
-//		die.roll();
-//		assertEquals(2,die.getLastRoll());
+		die.roll();
+		assertEquals(2,die.getLastRoll());
 	}
 
 }
