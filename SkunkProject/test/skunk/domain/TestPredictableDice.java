@@ -10,7 +10,10 @@ class TestPredictableDice
 	@Test
 	void test_PD_1_2_3()
 	{
-		fail("Not yet implemented");
+		PredictableDice dice = new PredictableDice ();
+		assertEquals(2,dice.getLastRoll());
+ 
+		
 	}
 
 }
