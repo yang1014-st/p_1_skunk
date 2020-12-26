@@ -15,6 +15,8 @@ class TestDice {
 		assertEquals(2, dice.lastRoll);
 		dice.roll();
 		assertEquals(4, dice.lastRoll);
+		dice.roll();
+		assertEquals(6, dice.lastRoll);
 	}
 
 }
