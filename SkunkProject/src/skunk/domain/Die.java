@@ -2,7 +2,7 @@ package skunk.domain;
 
 public class Die
 {
-	private int lastRoll;
+	protected int lastRoll;
 
 	public Die()
 	{
