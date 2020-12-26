@@ -1,4 +1,4 @@
-package skunk.domain;
+ package skunk.domain;
 
 import edu.princeton.cs.introcs.*;
 

@@ -34,5 +34,4 @@ class TestPredictableDie
 		assertEquals(1,die.getLastRoll());
 	}
 
-
 }

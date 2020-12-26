@@ -7,12 +7,14 @@ public class PredictableDie extends Die
 
 	public void roll()
 	{
-		
-		if (testRoll ==3) {
+
+		if (testRoll == 3)
+		{
 			this.setLastRoll(1);
 		}
-		else {
-			this.setLastRoll(testRoll+1);
+		else
+		{
+			this.setLastRoll(testRoll + 1);
 		}
 		testRoll++;
 	}
@@ -20,8 +22,7 @@ public class PredictableDie extends Die
 	private void setLastRoll(int i)
 	{
 		super.lastRoll = i;
-		
-	}
 
+	}
 
 }
