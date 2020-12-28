@@ -2,6 +2,8 @@ package skunk.domain;
 
 public class Roll {
 	
+	private static final int SKUNK_DEUCE_SUM = 3;
+	private static final int DOUBLE_SKUNK_SUM = 2;
 	private Dice dice;
 	
 	public Roll() {
@@ -38,7 +40,7 @@ public class Roll {
 
 
 	private boolean isDoubleSkunk() {
-		if (dice.getLastRoll()==2) {
+		if (dice.getLastRoll()==DOUBLE_SKUNK_SUM) {
 			return true;
 		}
 		else return false;
@@ -46,7 +48,7 @@ public class Roll {
 
 
 	private boolean isSkunkDeuce() {
-		if (dice.getLastRoll()==3) {
+		if (dice.getLastRoll()==SKUNK_DEUCE_SUM) {
 			return true;
 		}
 		else return false;
