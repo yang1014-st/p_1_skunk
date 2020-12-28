@@ -62,6 +62,15 @@ class TestRoll {
 		Roll roll = new Roll(dice);
 		assertEquals("not skunk", roll.check_skunk());
 	}
+	
+	@Test
+	void test_with_normal_die_check_dice_is_not_null() {
+		
+//		Roll roll = new Roll();
+//		assertNotNull(roll);
+		fail();
+	}
+
 
 
 }
