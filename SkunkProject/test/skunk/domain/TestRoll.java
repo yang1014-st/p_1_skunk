@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestRoll {
 
 	@Test
-	void test_deuce_skunk_1and2() {
+	void test_with_predictble_die_deuce_skunk_1and2() {
 		
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
@@ -22,7 +22,7 @@ class TestRoll {
 	}
 	
 	@Test
-	void test_double_skunk_1and1() {
+	void test_with_predictble_die_double_skunk_1and1() {
 		
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
@@ -33,7 +33,7 @@ class TestRoll {
 	}
 
 	@Test
-	void test_regular_skunk_1and3() {
+	void test_with_predictble_die_regular_skunk_1and3() {
 		
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
@@ -48,7 +48,7 @@ class TestRoll {
 	}
 
 	@Test
-	void test_regular_skunk_2and3() {
+	void test_with_predictble_die_not_skunk_2and3() {
 		
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
