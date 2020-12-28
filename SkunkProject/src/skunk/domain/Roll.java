@@ -26,7 +26,7 @@ public class Roll {
 		else if (isRegularSkunk()) {
 			return "regular skunk";
 		}
-		return "";
+		return "not skunk";
 		
 	}
 
