@@ -15,5 +15,16 @@ class TestRoll {
 		Roll roll = new Roll(dice);
 		assertEquals("regular skunk", roll.check_skunk());
 	}
+	
+	@Test
+	void test_double_skunk() {
+		
+		PredictableDie die1 = new PredictableDie();
+		die1.roll();
+		Dice dice = new Dice(die1, die1);
+		Roll roll = new Roll(dice);
+		assertEquals("double skunk", roll.check_skunk());
+	}
+
 
 }
