@@ -8,12 +8,13 @@ class TestDice {
 
 	@Test
 	void test_predictable_dice_1and2() { 
-		fail();
-//		PredictableDie die1 = new PredictableDie();
-//		PredictableDie die2 = new PredictableDie();
-//		Dice dice = new Dice (die1, die1);
-//		dice.roll();
-//		assertEquals(2, dice.lastRoll);
+
+		PredictableDie die1 = new PredictableDie();
+		PredictableDie die2 = new PredictableDie();
+		Dice dice = new Dice (die1, die1);
+		dice.roll();
+		assertEquals(2, dice.getLastRoll());
+		assertEquals("Dice with last roll: 2 => 1 + 1",dice.toString());
 	
 	}
 
