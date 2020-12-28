@@ -61,8 +61,10 @@ class TestDice {
 	
 	@Test
 	void test_random_dice_not_equal_to_0() { 
-
-		fail();
+		Dice dice = new Dice ();
+		dice.roll();
+		assertFalse(dice.getLastRoll()==0);
+		
 		
 	
 	}
