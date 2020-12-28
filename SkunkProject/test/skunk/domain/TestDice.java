@@ -41,6 +41,7 @@ class TestDice {
 		die1.roll();
 		die2.roll();
 		die2.roll();
+		die2.roll();
 		Dice dice = new Dice (die1, die2);
 		dice.roll();
 		assertEquals(4, dice.getLastRoll());
