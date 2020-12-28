@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestDice {
 
 	@Test
-	void test_predictable_dice_1and2() { 
+	void test_predictable_dice_1and1() { 
 
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
