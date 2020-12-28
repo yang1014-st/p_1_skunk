@@ -1,11 +1,9 @@
 package skunk.domain;
 
-public class Die
-{
+public class Die {
 	protected int lastRoll;
 
-	public Die()
-	{
+	public Die() {
 		this.roll();
 	}
 
@@ -20,7 +18,5 @@ public class Die
 	{
 		this.lastRoll = (int) (Math.random() * 6 + 1);
 	}
-
-
 
 }
