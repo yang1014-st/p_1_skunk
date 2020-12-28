@@ -15,15 +15,25 @@ public class Roll {
 
 	public String check_skunk() {
 	
-		String result = "";
 		if (isSkunkDeuce()) {
-			result =  "deuce skunk";
+			return  "deuce skunk";
 		}
-		if (isDoubleSkunk()) {
-			result = "double skunk";
+		else if (isDoubleSkunk()) {
+			return "double skunk";
 		}
-		return result;
+		else if (isRegularSkunk()) {
+			return "regular skunk";
+		}
+		return "";
 		
+	}
+
+
+	private boolean isRegularSkunk() {
+		if (dice.getDie1().getLastRoll()==1 || dice.getDie2().getLastRoll()==1) {
+			return true;
+		}
+		else return false;
 	}
 
 

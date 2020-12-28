@@ -19,6 +19,7 @@ public class Dice {
 	protected int lastRoll;
 	protected Die die1;
 	protected Die die2;
+	
 
 	// Constructors (object initializers) also can be declared anywhere
 	// Convention: after instance fields/variables
@@ -64,6 +65,15 @@ public class Dice {
 	public String toString() {
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
+
+	public Die getDie1() {
+		return die1;
+	}
+	
+	public Die getDie2() {
+		return die2;
+	}
+
 
 	// static methods can go anywhere - but at end is one convention
 
