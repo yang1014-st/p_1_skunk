@@ -33,6 +33,21 @@ class TestDice {
 	
 	}
 	
+	@Test
+	void test_predictable_dice_1and3() { 
+
+		PredictableDie die1 = new PredictableDie();
+		PredictableDie die2 = new PredictableDie();
+		die1.roll();
+		die2.roll();
+		die2.roll();
+		Dice dice = new Dice (die1, die2);
+		dice.roll();
+		assertEquals(4, dice.getLastRoll());
+		assertEquals("Dice with last roll: 4 => 1 + 3",dice.toString());
+	
+	}
+	
 	
 
 }
