@@ -22,11 +22,14 @@ class TestDice {
 	void test_predictable_dice_1and2() { 
 
 		PredictableDie die1 = new PredictableDie();
+		PredictableDie die2 = new PredictableDie();
 		die1.roll();
-		Dice dice = new Dice (die1, die1);
+		die2.roll();
+		die2.roll();
+		Dice dice = new Dice (die1, die2);
 		dice.roll();
 		assertEquals(3, dice.getLastRoll());
-		assertEquals("Dice with last roll: 3 => 2 + 1",dice.toString());
+		assertEquals("Dice with last roll: 3 => 1 + 2",dice.toString());
 	
 	}
 	
