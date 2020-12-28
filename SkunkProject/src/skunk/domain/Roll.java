@@ -14,7 +14,33 @@ public class Roll {
 	}
 
 	public String check_skunk() {
-		return "regular skunk";
+	
+		String result = "";
+		if (isSkunkDeuce()) {
+			result =  "deuce skunk";
+		}
+		if (isDoubleSkunk()) {
+			result = "double skunk";
+		}
+		return result;
+		
+	}
+
+
+	private boolean isDoubleSkunk() {
+		if (dice.getLastRoll()==2) {
+			return true;
+		}
+		else return false;
+	}
+
+
+	private boolean isSkunkDeuce() {
+		if (dice.getLastRoll()==3) {
+			return true;
+		}
+		else return false;
+		
 	}
 
 }

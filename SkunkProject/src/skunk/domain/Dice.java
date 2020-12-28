@@ -52,6 +52,8 @@ public class Dice {
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 
 	}
+	
+	
 
 	// the following method converts the internals of
 	// this Dice object, and returns a descriptive String:

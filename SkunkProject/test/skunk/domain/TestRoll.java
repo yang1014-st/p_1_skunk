@@ -7,13 +7,18 @@ import org.junit.jupiter.api.Test;
 class TestRoll {
 
 	@Test
-	void test_regular_skunk() {
+	void test_deuce_skunk() {
 		
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
-		Dice dice = new Dice(die1, die1);
+		PredictableDie die2 = new PredictableDie();
+		die2.roll();
+		die2.roll();
+		Dice dice = new Dice(die1, die2);
+		dice.roll();
+		assertEquals(3,dice.getLastRoll());
 		Roll roll = new Roll(dice);
-		assertEquals("regular skunk", roll.check_skunk());
+		assertEquals("deuce skunk", roll.check_skunk());
 	}
 	
 	@Test
@@ -22,6 +27,7 @@ class TestRoll {
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
 		Dice dice = new Dice(die1, die1);
+		dice.roll();
 		Roll roll = new Roll(dice);
 		assertEquals("double skunk", roll.check_skunk());
 	}
