@@ -8,7 +8,12 @@ class TestRoll {
 
 	@Test
 	void test_regular_skunk() {
-		fail("Not yet implemented");
+		
+		PredictableDie die1 = new PredictableDie();
+		die1.roll();
+		Dice dice = new Dice(die1, die1);
+		Roll roll = new Roll(dice);
+		assertEquals("regular skunk", roll.check_skunk());
 	}
 
 }
