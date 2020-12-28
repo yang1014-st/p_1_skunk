@@ -1,14 +1,20 @@
 package skunk.domain;
 
 public class Roll {
-
-	public Roll(Dice dice) {
-		// TODO Auto-generated constructor stub
+	
+	private Dice dice;
+	
+	public Roll() {
+		this.check_skunk();
 	}
 
-	public Object check_skunk() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public Roll(Dice dice) {
+		this.dice = dice;
+	}
+
+	public String check_skunk() {
+		return "regular skunk";
 	}
 
 }
