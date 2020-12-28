@@ -7,6 +7,7 @@ public class Roll {
 	private Dice dice;
 	
 	public Roll() {
+		dice = new Dice();
 		this.check_skunk();
 	}
 
@@ -53,6 +54,11 @@ public class Roll {
 		}
 		else return false;
 		
+	}
+
+
+	public Object getDice() {
+		return dice;
 	}
 
 }

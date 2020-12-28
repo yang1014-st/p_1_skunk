@@ -66,9 +66,9 @@ class TestRoll {
 	@Test
 	void test_with_normal_die_check_dice_is_not_null() {
 		
-//		Roll roll = new Roll();
-//		assertNotNull(roll);
-		fail();
+		Roll roll = new Roll();
+		assertNotNull(roll.getDice());
+	
 	}
 
 
