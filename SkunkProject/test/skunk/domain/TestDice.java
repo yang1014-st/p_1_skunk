@@ -49,6 +49,17 @@ class TestDice {
 	
 	}
 	
+	@Test
+	void test_random_dice_not_equal_to_13() { 
+
+		Dice dice = new Dice ();
+		dice.roll();
+		assertEquals(4, dice.getLastRoll());
+		assertEquals("Dice with last roll: 4 => 1 + 3",dice.toString());
+	
+	}
+	
+	
 	
 
 }
