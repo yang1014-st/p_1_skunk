@@ -4,6 +4,7 @@ public class Roll {
 	
 	private static final int SKUNK_DEUCE_SUM = 3;
 	private static final int DOUBLE_SKUNK_SUM = 2;
+	private String result_of_check_skunk;
 	private Dice dice;
 	
 	public Roll() {
@@ -17,19 +18,26 @@ public class Roll {
 		this.check_skunk();
 	}
 
-	public String check_skunk() {
+	public void check_skunk() {
 	
 		if (isSkunkDeuce()) {
-			return  "deuce skunk";
+			result_of_check_skunk=  "deuce skunk";
 		}
 		else if (isDoubleSkunk()) {
-			return "double skunk";
+			result_of_check_skunk= "double skunk";
 		}
 		else if (isRegularSkunk()) {
-			return "regular skunk";
+			result_of_check_skunk= "regular skunk";
 		}
-		return "not skunk";
+		else {
+			result_of_check_skunk = "not skunk";
+
+		}
 		
+	}
+	
+	public String get_result_of_check_skunk() {
+		return result_of_check_skunk;
 	}
 
 
