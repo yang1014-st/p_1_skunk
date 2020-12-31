@@ -171,6 +171,6 @@ class TestTurn {
 		Turn turn = new Turn();
 		int turn_score_1 = turn.get_turn_score();
 		turn.want_to_stop();
-		assertTrue(turn.get_turn_score() !=turn_score_1);
+		assertTrue(turn.get_turn_score() ==turn_score_1);
 	}
 }
