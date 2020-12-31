@@ -14,6 +14,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die1);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(1,turn.getLastRoll().getDice().getDie2().getLastRoll());
@@ -34,6 +35,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
@@ -55,6 +57,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
@@ -77,6 +80,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		assertEquals(5, turn.get_turn_score());
 		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
@@ -100,12 +104,13 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		assertEquals("Roll of Dice with last roll: 5 => 2 + 3, gives new turn score of 5",turn.get_message_after_each_roll());
 		PredictableDie die3 = new PredictableDie();
 		die3.roll();
 		dice = new Dice(die3, die3);
 		Roll roll2 = new Roll(dice);
-		turn = new Turn(roll2);
+		turn.continue_game(roll2);
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(1,turn.getLastRoll().getDice().getDie2().getLastRoll());
@@ -128,6 +133,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
 		assertEquals("Roll of Dice with last roll: 5 => 2 + 3, gives new turn score of 5",turn.get_message_after_each_roll());
@@ -157,6 +163,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		dice = new Dice(die2, die1);
 		Roll roll2 = new Roll(dice);
 		turn.continue_game(roll2);
@@ -189,6 +196,7 @@ class TestTurn {
 		Dice dice = new Dice(die1, die1);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		turn.start_roll();
 		int turn_score_1 = turn.get_turn_score();
 		turn.continue_game();
 		assertFalse(turn.get_turn_score() ==turn_score_1);
@@ -197,6 +205,7 @@ class TestTurn {
 	@Test
 	void test_want_to_stop() {
 		Turn turn = new Turn();
+		turn.start_roll();
 		int turn_score_1 = turn.get_turn_score();
 		turn.want_to_stop();
 		assertTrue(turn.get_turn_score() ==turn_score_1);

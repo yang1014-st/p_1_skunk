@@ -17,7 +17,7 @@ public class Turn {
 		stop_roll = false;
 		message_after_each_roll = "";
 		message_after_each_turn ="";
-		this.start_roll();
+		
 
 	}
 
@@ -28,7 +28,7 @@ public class Turn {
 		stop_roll = false;
 		message_after_each_roll = "";
 		message_after_each_turn ="";
-		this.start_roll();
+		
 	}
 
 	public void start_roll() {
