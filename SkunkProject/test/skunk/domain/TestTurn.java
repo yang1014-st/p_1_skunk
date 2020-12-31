@@ -120,7 +120,6 @@ class TestTurn {
 	
 	@Test
 	void test_with_normal_die_1_roll_turn_score_does_not_equal_to_13() {
-		fail();
 		Turn turn = new Turn();
 		assertFalse(turn.get_turn_score()==13);
 	}
