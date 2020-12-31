@@ -7,14 +7,16 @@ public class Turn {
 	private Roll lastRoll;
 	private int chip_number_to_lose;
 	private Boolean stop_roll;
-	private String message;
+	private String message_after_each_roll;
+	private String message_after_each_turn;
 
 	public Turn() {
 		this.lastRoll = new Roll();
 		this.turn_score = 0;
 		chip_number_to_lose = 0;
 		stop_roll = false;
-		message = "";
+		message_after_each_roll = "";
+		message_after_each_turn ="";
 		this.start_roll();
 
 	}
@@ -24,7 +26,8 @@ public class Turn {
 		this.turn_score = 0;
 		chip_number_to_lose = 0;
 		stop_roll = false;
-		message = "";
+		message_after_each_roll = "";
+		message_after_each_turn ="";
 		this.start_roll();
 	}
 
@@ -33,23 +36,28 @@ public class Turn {
 		if (lastRoll.get_result_of_check_skunk() == "deuce skunk") {
 			turn_score = 0;
 			chip_number_to_lose = 2;
-			message = "Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.";
+			message_after_each_roll = "Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.";
 			stop_roll = true;
 		} else if (lastRoll.get_result_of_check_skunk() == "double skunk") {
 			turn_score = 0;
 			chip_number_to_lose = 4;
-			message = "Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.";
+			message_after_each_roll = "Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.";
 			stop_roll = true;
 		} else if (lastRoll.get_result_of_check_skunk() == "regular skunk") {
 			turn_score = 0;
 			chip_number_to_lose = 1;
-			message = "One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.";
+			message_after_each_roll = "One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.";
 
 			stop_roll = true;
 		} else {
 			turn_score = turn_score + lastRoll.getDice().get_sum_of_die1_and_die2();
-			message = "Roll of Dice with last roll: " + this.getLastRoll().getDice().get_sum_of_die1_and_die2() + " => " + this.getLastRoll().getDice().getDie1().getLastRoll() + " + " +  this.getLastRoll().getDice().getDie2().getLastRoll() + ", gives new turn score of " + this.get_turn_score();
+			message_after_each_roll = "Roll of Dice with last roll: " + this.getLastRoll().getDice().get_sum_of_die1_and_die2() + " => " + this.getLastRoll().getDice().getDie1().getLastRoll() + " + " +  this.getLastRoll().getDice().getDie2().getLastRoll() + ", gives new turn score of " + this.get_turn_score();
 		}
+
+	}
+	
+	public void end_roll() {
+		message_after_each_turn ="End of the turn. Score for this turn is " + this.get_turn_score() + ". Chip penality is " + this.get_chip_number_to_lose() + ".";
 
 	}
 
@@ -84,7 +92,12 @@ public class Turn {
 		wants_to_play = false;
 	}
 
-	public String get_message() {
-		return message;
+	public String get_message_after_each_roll() {
+		return message_after_each_roll;
 	}
+	
+	public String get_message_after_each_turn() {
+		return message_after_each_turn;
+	}
+	
 }
