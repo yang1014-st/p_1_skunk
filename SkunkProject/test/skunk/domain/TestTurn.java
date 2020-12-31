@@ -17,6 +17,7 @@ class TestTurn {
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(1,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(4,turn.get_chip_number_to_lose());
 	}
 
 	@Test
@@ -32,6 +33,8 @@ class TestTurn {
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(2,turn.get_chip_number_to_lose());
+
 	}
 
 	@Test
@@ -48,6 +51,8 @@ class TestTurn {
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(1,turn.get_chip_number_to_lose());
+
 	}
 
 	@Test
@@ -65,6 +70,8 @@ class TestTurn {
 		assertEquals(5, turn.get_turn_score());
 		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(0,turn.get_chip_number_to_lose());
+
 	}
 
 	@Test
@@ -87,6 +94,7 @@ class TestTurn {
 		assertEquals(0, turn.get_turn_score());
 		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(1,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(4,turn.get_chip_number_to_lose());
 	}
 
 	@Test
@@ -109,6 +117,7 @@ class TestTurn {
 		assertEquals(10, turn.get_turn_score());
 		assertEquals(3,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(0,turn.get_chip_number_to_lose());
 
 	}
 
@@ -133,19 +142,28 @@ class TestTurn {
 		assertEquals(14, turn.get_turn_score());
 		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
 		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
+		assertEquals(0,turn.get_chip_number_to_lose());
 	}
+	
+
 
 	@Test
-	void test_with_normal_die_1_roll_turn_score_does_not_equal_to_13() {
+	void test_with_normal_die_1_roll() {
 		Turn turn = new Turn();
 		assertFalse(turn.get_turn_score() == 13);
 	}
 
 	@Test
-	void test_with_normal_die_2_rolls_turn_score_does_not_equal_to_26() {
-		Turn turn = new Turn();
+	void test_with_predictable_die_2and2_random() {
+		PredictableDie die1 = new PredictableDie();
+		die1.roll();
+		die1.roll();
+		Dice dice = new Dice(die1, die1);
+		Roll roll = new Roll(dice);
+		Turn turn = new Turn(roll);
+		int turn_score_1 = turn.get_turn_score();
 		turn.continue_game();
-		assertFalse(turn.get_turn_score() == 26);
+		assertFalse(turn.get_turn_score() ==turn_score_1);
 	}
 
 }
