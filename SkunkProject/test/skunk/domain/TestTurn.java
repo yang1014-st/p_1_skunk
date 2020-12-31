@@ -21,8 +21,10 @@ class TestTurn {
 		assertEquals(4,turn.get_chip_number_to_lose());
 		assertEquals("Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4.", turn.get_message_after_each_turn());
 
 	}
@@ -45,8 +47,10 @@ class TestTurn {
 		assertEquals(2,turn.get_chip_number_to_lose());
 		assertEquals("Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 2.", turn.get_message_after_each_turn());
 
 	}
@@ -70,8 +74,10 @@ class TestTurn {
 		assertEquals(1,turn.get_chip_number_to_lose());
 		assertEquals("One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 1.", turn.get_message_after_each_turn());
 
 	}
@@ -96,8 +102,10 @@ class TestTurn {
 		assertEquals(0,turn.get_chip_number_to_lose());
 		assertEquals("Roll of Dice with last roll: 5 => 2 + 3, gives new turn score of 5",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 5. Chip penality is 0.", turn.get_message_after_each_turn());
 
 
@@ -129,8 +137,10 @@ class TestTurn {
 		assertEquals(4,turn.get_chip_number_to_lose());
 		assertEquals("Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4.", turn.get_message_after_each_turn());
 
 	}
@@ -161,8 +171,10 @@ class TestTurn {
 		assertEquals(0,turn.get_chip_number_to_lose());
 		assertEquals("Roll of Dice with last roll: 5 => 3 + 2, gives new turn score of 10",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 10. Chip penality is 0.", turn.get_message_after_each_turn());
 
 
@@ -194,8 +206,10 @@ class TestTurn {
 		assertEquals(0,turn.get_chip_number_to_lose());
 		assertEquals("Roll of Dice with last roll: 4 => 2 + 2, gives new turn score of 14",turn.get_message_after_each_roll());
 		turn.end_roll();
-		assertEquals(46,player.get_number_of_chips());
-		assertEquals(0,player.get_number_of_score());
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		assertEquals(1,player.get_number_of_chips());
+		assertEquals(1,player.get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 14. Chip penality is 0.", turn.get_message_after_each_turn());
 
 	}
