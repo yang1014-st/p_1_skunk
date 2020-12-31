@@ -19,7 +19,6 @@ class TestTurn {
 	
 	@Test
 	void test_with_predictable_die_1and2() {
-		fail();
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
 		die1.roll();
