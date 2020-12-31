@@ -112,6 +112,9 @@ class TestTurn {
 		dice = new Dice(die2, die1);
 		Roll roll2 = new Roll(dice);
 		turn.continue_game(roll2);
+		dice = new Dice (die1, die1);
+		Roll roll3 = new Roll(dice);
+		turn.continue_game(roll3);
 		assertEquals(14,turn.get_turn_score());
 	}
 
