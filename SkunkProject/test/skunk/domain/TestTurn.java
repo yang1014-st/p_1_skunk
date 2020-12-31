@@ -126,7 +126,6 @@ class TestTurn {
 
 	@Test
 	void test_with_normal_die_2_rolls_turn_score_does_not_equal_to_26() {
-		fail();
 		Turn turn = new Turn();
 		turn.continue_game();
 		assertFalse(turn.get_turn_score() == 26);
