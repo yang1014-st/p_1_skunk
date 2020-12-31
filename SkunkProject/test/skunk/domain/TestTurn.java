@@ -96,6 +96,25 @@ class TestTurn {
 		turn.continue_game(roll2);
 		assertEquals(10,turn.get_turn_score());
 	}
+	
+	@Test
+	void test_with_predictable_die_2and3_3and2_2and2() {
+		PredictableDie die1 = new PredictableDie();
+		PredictableDie die2 = new PredictableDie();
+		die1.roll();
+		die1.roll();
+		die2.roll();
+		die2.roll();
+		die2.roll();
+		Dice dice = new Dice(die1, die2);
+		Roll roll = new Roll(dice);
+		Turn turn = new Turn(roll);
+		dice = new Dice(die2, die1);
+		Roll roll2 = new Roll(dice);
+		turn.continue_game(roll2);
+		assertEquals(14,turn.get_turn_score());
+	}
+
 
 
 }
