@@ -49,6 +49,7 @@ class TestTurn {
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
 		die1.roll();
+		die1.roll();
 		die2.roll();
 		die2.roll();
 		die2.roll();
