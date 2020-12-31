@@ -3,51 +3,36 @@ package skunk.domain;
 public class Turn {
 
 	private Boolean wants_to_play = true;
-	private int turn_score = 0;
-	private Roll roll;
+	private int turn_score;
+	private Roll lastRoll;
 
-	public Turn(boolean wants_to_play) {
-		this.wants_to_play = wants_to_play;
-		
-		if (wants_to_play = true) {
-			this.roll = new Roll();
-			this.calculate_turn_score();
-		}
-		else {
-			this.calculate_turn_score();
-		}
-		
-	}
-
-	public Turn(boolean wants_to_play, Roll roll) {
-	this.wants_to_play = wants_to_play;
-		
-		if (wants_to_play = true) {
-			this.roll = roll;
-			this.calculate_turn_score();
-		}
-		else {
-			this.calculate_turn_score();
-		}
-	
+	public Turn() {
+		this.lastRoll = new Roll();
+		this.calculate_turn_score();
 
 	}
-	
+
+	public Turn(Roll roll) {
+		this.lastRoll = roll;
+		this.calculate_turn_score();
+	}
+
 	public void calculate_turn_score() {
-		
-		if (roll.get_result_of_check_skunk() == "deuce skunk") {
+
+		if (lastRoll.get_result_of_check_skunk() == "deuce skunk") {
 			turn_score = 0;
-		}
-		else if (roll.get_result_of_check_skunk() == "double skunk") {
+		} else if (lastRoll.get_result_of_check_skunk() == "double skunk") {
 			turn_score = 0;
-		}
-		else if (roll.get_result_of_check_skunk() == "regular skunk") {
+		} else if (lastRoll.get_result_of_check_skunk() == "regular skunk") {
 			turn_score = 0;
+		} else {
+			turn_score = turn_score + lastRoll.getDice().get_sum_of_die1_and_die2();
 		}
-		else {
-			turn_score = turn_score + roll.getDice().get_sum_of_die1_and_die2();
-		}
-	
+
+	}
+	public void continue_game(Roll roll) {
+		this.lastRoll=roll;
+		this.calculate_turn_score();
 	}
 	
 	public int get_turn_score() {
