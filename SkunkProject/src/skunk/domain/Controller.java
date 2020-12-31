@@ -2,7 +2,7 @@ package skunk.domain;
 
 import edu.princeton.cs.introcs.*;
 
-public class SkunkApp {
+public class Controller {
 
 	public static void main(String[] args) {
 
