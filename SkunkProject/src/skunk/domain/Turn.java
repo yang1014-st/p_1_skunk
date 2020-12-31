@@ -43,5 +43,9 @@ public class Turn {
 	public int get_turn_score() {
 		return turn_score;
 	}
+	
+	public Roll getLastRoll() {
+		return lastRoll;
+	}
 
 }

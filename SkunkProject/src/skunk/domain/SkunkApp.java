@@ -6,10 +6,12 @@ public class SkunkApp {
 
 	public static void main(String[] args) {
 		StdOut.println("Welcome to play Skunk!");
-		Dice dice = new Dice();
-		dice.add_die1_and_die2();
-		StdOut.println(dice.toString());
-
+		StdOut.println("Do you want to roll? y or n =>");
+		while (StdIn.readLine().toLowerCase()=="y") {
+			Turn Turn = new Turn();
+			
+		}
+	
 	}
 
 }

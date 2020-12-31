@@ -15,6 +15,8 @@ class TestTurn {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		assertEquals(0, turn.get_turn_score());
+		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(1,turn.getLastRoll().getDice().getDie2().getLastRoll());
 	}
 
 	@Test
@@ -28,6 +30,8 @@ class TestTurn {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		assertEquals(0, turn.get_turn_score());
+		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
 	}
 
 	@Test
@@ -42,6 +46,8 @@ class TestTurn {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		assertEquals(0, turn.get_turn_score());
+		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
 	}
 
 	@Test
@@ -57,6 +63,8 @@ class TestTurn {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		assertEquals(5, turn.get_turn_score());
+		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
 	}
 
 	@Test
@@ -77,6 +85,8 @@ class TestTurn {
 		Roll roll2 = new Roll(dice);
 		turn = new Turn(roll2);
 		assertEquals(0, turn.get_turn_score());
+		assertEquals(1,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(1,turn.getLastRoll().getDice().getDie2().getLastRoll());
 	}
 
 	@Test
@@ -91,10 +101,15 @@ class TestTurn {
 		Dice dice = new Dice(die1, die2);
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
+		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(3,turn.getLastRoll().getDice().getDie2().getLastRoll());
 		dice = new Dice(die2, die1);
 		Roll roll2 = new Roll(dice);
 		turn.continue_game(roll2);
 		assertEquals(10, turn.get_turn_score());
+		assertEquals(3,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
+
 	}
 
 	@Test
@@ -116,6 +131,8 @@ class TestTurn {
 		Roll roll3 = new Roll(dice);
 		turn.continue_game(roll3);
 		assertEquals(14, turn.get_turn_score());
+		assertEquals(2,turn.getLastRoll().getDice().getDie1().getLastRoll());
+		assertEquals(2,turn.getLastRoll().getDice().getDie2().getLastRoll());
 	}
 
 	@Test
