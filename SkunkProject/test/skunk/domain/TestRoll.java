@@ -15,7 +15,7 @@ class TestRoll {
 		die2.roll();
 		die2.roll();
 		Dice dice = new Dice(die1, die2);
-		dice.roll();
+		dice.get_sum_of_die1_and_die2();
 		assertEquals(3,dice.getLastRoll());
 		Roll roll = new Roll(dice);
 		assertEquals("deuce skunk", roll.check_skunk());
@@ -27,7 +27,7 @@ class TestRoll {
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
 		Dice dice = new Dice(die1, die1);
-		dice.roll();
+		dice.get_sum_of_die1_and_die2();
 		Roll roll = new Roll(dice);
 		assertEquals("double skunk", roll.check_skunk());
 	}
@@ -42,7 +42,7 @@ class TestRoll {
 		die2.roll();
 		die2.roll();
 		Dice dice = new Dice(die1, die2);
-		dice.roll();
+		dice.get_sum_of_die1_and_die2();
 		Roll roll = new Roll(dice);
 		assertEquals("regular skunk", roll.check_skunk());
 	}
@@ -58,7 +58,7 @@ class TestRoll {
 		die2.roll();
 		die2.roll();
 		Dice dice = new Dice(die1, die2);
-		dice.roll();
+		dice.get_sum_of_die1_and_die2();
 		Roll roll = new Roll(dice);
 		assertEquals("not skunk", roll.check_skunk());
 	}

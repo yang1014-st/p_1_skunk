@@ -30,7 +30,7 @@ public class Dice {
 
 		this.die1 = new Die();
 		this.die2 = new Die();
-		this.roll();
+		this.get_sum_of_die1_and_die2();
 	}
 
 	public Dice(Die die1, Die die2) // overloaded constructor
@@ -46,7 +46,7 @@ public class Dice {
 		return this.lastRoll;
 	}
 
-	public void roll() {
+	public void get_sum_of_die1_and_die2() {
 		// Roll each of die1, die2, sum their last rolls,
 		// then set Dice.lastRoll to this value
 
