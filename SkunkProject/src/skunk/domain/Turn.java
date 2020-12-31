@@ -35,6 +35,11 @@ public class Turn {
 		this.calculate_turn_score();
 	}
 	
+	public void continue_game() {
+		this.calculate_turn_score();
+	}
+	
+	
 	public int get_turn_score() {
 		return turn_score;
 	}
