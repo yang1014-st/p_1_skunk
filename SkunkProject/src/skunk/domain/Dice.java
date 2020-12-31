@@ -30,23 +30,24 @@ public class Dice {
 
 		this.die1 = new Die();
 		this.die2 = new Die();
-		this.get_sum_of_die1_and_die2();
+		this.add_die1_and_die2();
 	}
 
 	public Dice(Die die1, Die die2) // overloaded constructor
 	{
 		this.die1 = die1;
 		this.die2 = die2;
+		this.add_die1_and_die2();
 	}
 
 	// Instance methods can also be declared anywhere in body of class
 	// One convention: after the constructors
 
-	public int getLastRoll() {
+	public int get_sum_of_die1_and_die2() {
 		return this.lastRoll;
 	}
 
-	public void get_sum_of_die1_and_die2() {
+	public void add_die1_and_die2() {
 		// Roll each of die1, die2, sum their last rolls,
 		// then set Dice.lastRoll to this value
 
@@ -63,7 +64,7 @@ public class Dice {
 	//
 
 	public String toString() {
-		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
+		return "Dice with last roll: " + get_sum_of_die1_and_die2() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
 
 	public Die getDie1() {

@@ -12,8 +12,7 @@ class TestDice {
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
 		Dice dice = new Dice(die1, die1);
-		dice.get_sum_of_die1_and_die2();
-		assertEquals(2, dice.getLastRoll());
+		assertEquals(2, dice.get_sum_of_die1_and_die2());
 		assertEquals("Dice with last roll: 2 => 1 + 1", dice.toString());
 
 	}
@@ -27,8 +26,7 @@ class TestDice {
 		die2.roll();
 		die2.roll();
 		Dice dice = new Dice(die1, die2);
-		dice.get_sum_of_die1_and_die2();
-		assertEquals(3, dice.getLastRoll());
+		assertEquals(3, dice.get_sum_of_die1_and_die2());
 		assertEquals("Dice with last roll: 3 => 1 + 2", dice.toString());
 
 	}
@@ -43,8 +41,7 @@ class TestDice {
 		die2.roll();
 		die2.roll();
 		Dice dice = new Dice(die1, die2);
-		dice.get_sum_of_die1_and_die2();
-		assertEquals(4, dice.getLastRoll());
+		assertEquals(4, dice.get_sum_of_die1_and_die2());
 		assertEquals("Dice with last roll: 4 => 1 + 3", dice.toString());
 
 	}
@@ -53,16 +50,14 @@ class TestDice {
 	void test_random_dice_not_equal_to_13() {
 
 		Dice dice = new Dice();
-		dice.get_sum_of_die1_and_die2();
-		assertFalse(dice.getLastRoll() == 13);
+		assertFalse(dice.get_sum_of_die1_and_die2() == 13);
 
 	}
 
 	@Test
 	void test_random_dice_not_equal_to_0() {
 		Dice dice = new Dice();
-		dice.get_sum_of_die1_and_die2();
-		assertFalse(dice.getLastRoll() == 0);
+		assertFalse(dice.get_sum_of_die1_and_die2() == 0);
 
 	}
 

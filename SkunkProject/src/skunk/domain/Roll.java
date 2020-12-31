@@ -14,6 +14,7 @@ public class Roll {
 
 	public Roll(Dice dice) {
 		this.dice = dice;
+		this.check_skunk();
 	}
 
 	public String check_skunk() {
@@ -41,7 +42,7 @@ public class Roll {
 
 
 	private boolean isDoubleSkunk() {
-		if (dice.getLastRoll()==DOUBLE_SKUNK_SUM) {
+		if (dice.get_sum_of_die1_and_die2()==DOUBLE_SKUNK_SUM) {
 			return true;
 		}
 		else return false;
@@ -49,7 +50,7 @@ public class Roll {
 
 
 	private boolean isSkunkDeuce() {
-		if (dice.getLastRoll()==SKUNK_DEUCE_SUM) {
+		if (dice.get_sum_of_die1_and_die2()==SKUNK_DEUCE_SUM) {
 			return true;
 		}
 		else return false;
@@ -57,7 +58,7 @@ public class Roll {
 	}
 
 
-	public Object getDice() {
+	public Dice getDice() {
 		return dice;
 	}
 
