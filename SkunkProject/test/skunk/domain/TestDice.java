@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestDice {
 
 	@Test
-	void test_predictable_dice_1and1() {
+	void test_with_predictable_die_1and1() {
 
 		PredictableDie die1 = new PredictableDie();
 		die1.roll();
@@ -18,7 +18,7 @@ class TestDice {
 	}
 
 	@Test
-	void test_predictable_dice_1and2() {
+	void test_with_predictable_die_1and2() {
 
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
@@ -32,7 +32,7 @@ class TestDice {
 	}
 
 	@Test
-	void test_predictable_dice_1and3() {
+	void test_with_predictable_die_1and3() {
 
 		PredictableDie die1 = new PredictableDie();
 		PredictableDie die2 = new PredictableDie();
@@ -47,7 +47,7 @@ class TestDice {
 	}
 
 	@Test
-	void test_random_dice_not_equal_to_13() {
+	void test_with_nomal_die_not_equal_to_13() {
 
 		Dice dice = new Dice();
 		assertFalse(dice.get_sum_of_die1_and_die2() == 13);
@@ -55,7 +55,7 @@ class TestDice {
 	}
 
 	@Test
-	void test_random_dice_not_equal_to_0() {
+	void test_with_nomal_die_not_equal_to_0() {
 		Dice dice = new Dice();
 		assertFalse(dice.get_sum_of_die1_and_die2() == 0);
 

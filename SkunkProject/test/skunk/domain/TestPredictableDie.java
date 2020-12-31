@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestPredictableDie {
 
 	@Test
-	void test_PD_1_2_3() {
+	void test_with_predictable_die_1_2_3() {
 		PredictableDie die = new PredictableDie();
 		die.roll();
 		assertEquals(1, die.getLastRoll());
@@ -18,7 +18,7 @@ class TestPredictableDie {
 	}
 
 	@Test
-	void test_PD_1_2_3_1() {
+	void test_with_predictable_die_1_2_3_1() {
 
 		PredictableDie die = new PredictableDie();
 		die.roll();
