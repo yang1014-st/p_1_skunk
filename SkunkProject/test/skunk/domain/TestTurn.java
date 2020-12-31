@@ -75,7 +75,7 @@ class TestTurn {
 		die3.roll();
 		dice = new Dice(die3, die3);
 		Roll roll2 = new Roll(dice);
-		turn = new Turn(false,roll);
+		turn = new Turn(false,roll2);
 		assertEquals(0,turn.get_turn_score());
 	}
 

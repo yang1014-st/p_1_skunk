@@ -8,15 +8,27 @@ public class Turn {
 
 	public Turn(boolean wants_to_play) {
 		this.wants_to_play = wants_to_play;
-		this.roll = new Roll();
-		this.calculate_turn_score();
+		
+		if (wants_to_play = true) {
+			this.roll = new Roll();
+			this.calculate_turn_score();
+		}
+		else {
+			this.calculate_turn_score();
+		}
 		
 	}
 
 	public Turn(boolean wants_to_play, Roll roll) {
-		this.wants_to_play = wants_to_play;
-		this.roll = roll;
-		this.calculate_turn_score();
+	this.wants_to_play = wants_to_play;
+		
+		if (wants_to_play = true) {
+			this.roll = roll;
+			this.calculate_turn_score();
+		}
+		else {
+			this.calculate_turn_score();
+		}
 	
 
 	}
