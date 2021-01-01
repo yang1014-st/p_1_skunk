@@ -1,6 +1,8 @@
 package myskunk.dl;
 
+
 import static org.junit.jupiter.api.Assertions.*;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +12,13 @@ class TestController {
 	void test_1turn_enter_n() {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'n');
+		controller.before_run("Jie");
 		controller.run();
+		
 		assertEquals("-----------------------------" +"\n"
-		            +"You did not select 'y'." + "\n"
-					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-					+"Your scope is 0. You have 50 chips.", controller.get_turn_result());
+			    +"You did not select 'y'." + "\n"
+				+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
+				+ "Jie, your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
 	
 	@Test
@@ -22,21 +26,23 @@ class TestController {
 		
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'd');
+		controller.before_run("Jie");
 		controller.run();
 		assertEquals("-----------------------------" +"\n"
 				    +"You did not select 'y'." + "\n"
 					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-					+ "Your scope is 0. You have 50 chips.", controller.get_turn_result());
+					+ "Jie, your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
 	
 	@Test
 	void test_1turn_enter_y() {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'y');
+		controller.before_run("Jie");
 		controller.run();
 		assertNotEquals("-----------------------------" +"\n"+"You did not select 'y'." + "\n"
 					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-					+"Your scope is 0. You have 50 chips.", controller.get_turn_result());
+					+"Jie, your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
 
 }

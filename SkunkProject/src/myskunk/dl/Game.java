@@ -8,15 +8,15 @@ public class Game {
 	private String message_after_each_turn;
 	private String message_after_each_roll;
 
-	public Game() {
+	public Game(String player_name) {
 		turn = new Turn();
-		player = new Player(50);
+		player = new Player(50,player_name);
 
 	}
 	
-	public Game(Turn turn) {
+	public Game(Turn turn, String player_name) {
 		this.turn = turn;
-		player = new Player(50);
+		player = new Player(50,player_name);
 
 	}
 

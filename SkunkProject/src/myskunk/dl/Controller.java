@@ -8,14 +8,25 @@ public class Controller {
 	private Boolean wants_to_test = false;
 	private char wants_to_roll_test;
 	private String turn_result;
+	private Game game;
 	
 
+	public void before_run() {
+		StdOut.println("Welcome to play Skunk!");
+		StdOut.println("What's your name?");
+		game = new Game(StdIn.readLine());
+
+	}
+	
+	public void before_run(String playe_name) {
+		game = new Game(playe_name);
+
+	}
 	
 	public void run() {
 
-		Game game = new Game();
-
-		StdOut.println("Welcome to play Skunk!");
+		
+	
 		ask_user_if_want_to_roll();
 
 		if (wants_to_roll == 'y') {

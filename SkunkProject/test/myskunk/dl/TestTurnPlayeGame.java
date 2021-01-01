@@ -20,7 +20,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 		
 		assertEquals("Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.",turn.get_message_after_each_roll());
@@ -36,8 +36,8 @@ class TestTurnPlayeGame {
 	   	assertEquals(46,game.get_player().get_number_of_chips());
 		assertEquals(0,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 0. You have 46 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4."+"\n"+ "Your scope is 0. You have 46 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 0. You have 46 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4."+"\n"+ "Jie, your scope is 0. You have 46 chips.", game.get_message_after_each_turn());
 	}
 
 	@Test
@@ -49,7 +49,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 
 		
@@ -66,8 +66,8 @@ class TestTurnPlayeGame {
 		assertEquals(48,game.get_player().get_number_of_chips());
 		assertEquals(0,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 2.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 0. You have 48 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 2."+"\n"+ "Your scope is 0. You have 48 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 0. You have 48 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 2."+"\n"+ "Jie, your scope is 0. You have 48 chips.", game.get_message_after_each_turn());
 
 	}
 
@@ -80,7 +80,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 		
 		assertEquals("One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",turn.get_message_after_each_roll());
@@ -96,8 +96,8 @@ class TestTurnPlayeGame {
 		assertEquals(49,game.get_player().get_number_of_chips());
 		assertEquals(0,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 1.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 0. You have 49 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 1."+"\n"+ "Your scope is 0. You have 49 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 0. You have 49 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 1."+"\n"+ "Jie, your scope is 0. You have 49 chips.", game.get_message_after_each_turn());
 
 	}
 
@@ -110,7 +110,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 		
 		assertEquals("Roll of Dice with last roll: 5 => 2 + 3, gives new turn score of 5",turn.get_message_after_each_roll());
@@ -126,8 +126,8 @@ class TestTurnPlayeGame {
 		assertEquals(50,game.get_player().get_number_of_chips());
 		assertEquals(5,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 5. Chip penality is 0.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 5. You have 50 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 5. Chip penality is 0."+"\n"+ "Your scope is 5. You have 50 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 5. You have 50 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 5. Chip penality is 0."+"\n"+ "Jie, your scope is 5. You have 50 chips.", game.get_message_after_each_turn());
 
 	}
 
@@ -141,7 +141,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 		
 		assertEquals("Roll of Dice with last roll: 5 => 2 + 3, gives new turn score of 5",turn.get_message_after_each_roll());
@@ -167,8 +167,8 @@ class TestTurnPlayeGame {
 		assertEquals(46,game.get_player().get_number_of_chips());
 		assertEquals(0,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 0. You have 46 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4."+"\n"+ "Your scope is 0. You have 46 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 0. You have 46 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 0. Chip penality is 4."+"\n"+ "Jie, your scope is 0. You have 46 chips.", game.get_message_after_each_turn());
 
 	}
 
@@ -181,7 +181,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 		
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 		
 		assertEquals("Roll of Dice with last roll: 5 => 2 + 3, gives new turn score of 5",turn.get_message_after_each_roll());
@@ -209,8 +209,8 @@ class TestTurnPlayeGame {
 		assertEquals(50,game.get_player().get_number_of_chips());
 		assertEquals(10,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 10. Chip penality is 0.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 10. You have 50 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 10. Chip penality is 0."+"\n"+ "Your scope is 10. You have 50 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 10. You have 50 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 10. Chip penality is 0."+"\n"+ "Jie, your scope is 10. You have 50 chips.", game.get_message_after_each_turn());
 
 	}
 
@@ -223,7 +223,7 @@ class TestTurnPlayeGame {
 		Roll roll = new Roll(dice);
 		Turn turn = new Turn(roll);
 
-		Game game = new Game(turn);
+		Game game = new Game(turn,"Jie");
 		game.continue_game(turn);
 		
 		dice = new PredictableDice();
@@ -249,8 +249,8 @@ class TestTurnPlayeGame {
 		assertEquals(50,game.get_player().get_number_of_chips());
 		assertEquals(14,game.get_player().get_number_of_score());
 		assertEquals("End of the turn. Score for this turn is 14. Chip penality is 0.", turn.get_message_after_each_turn());
-		assertEquals("Your scope is 14. You have 50 chips.",game.get_player().get_result());
-		assertEquals("End of the turn. Score for this turn is 14. Chip penality is 0."+"\n"+ "Your scope is 14. You have 50 chips.", game.get_message_after_each_turn());
+		assertEquals("Jie, your scope is 14. You have 50 chips.",game.get_player().get_result());
+		assertEquals("End of the turn. Score for this turn is 14. Chip penality is 0."+"\n"+ "Jie, your scope is 14. You have 50 chips.", game.get_message_after_each_turn());
 
 	}
 	
@@ -278,7 +278,7 @@ class TestTurnPlayeGame {
 
 	@Test
 	void test_end_game() {
-		Game game = new Game();
+		Game game = new Game("Jie");
 		game.continue_game();
 		int turn_score_1 = game.get_turn().get_turn_score();
 		game.end_game();
