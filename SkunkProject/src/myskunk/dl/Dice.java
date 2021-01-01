@@ -38,11 +38,11 @@ public class Dice {
 	// Instance methods can also be declared anywhere in body of class
 	// One convention: after the constructors
 
-	public int get_sum_of_die1_and_die2() {
+	protected int get_sum_of_die1_and_die2() {
 		return this.lastRoll;
 	}
 
-	public void add_die1_and_die2() {
+	protected void add_die1_and_die2() {
 		// Roll each of die1, die2, sum their last rolls,
 		// then set Dice.lastRoll to this value
 
@@ -62,11 +62,11 @@ public class Dice {
 		return "Dice with last roll: " + get_sum_of_die1_and_die2() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
 
-	public Die getDie1() {
+	protected Die getDie1() {
 		return die1;
 	}
 	
-	public Die getDie2() {
+	protected Die getDie2() {
 		return die2;
 	}
 

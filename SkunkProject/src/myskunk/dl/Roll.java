@@ -18,7 +18,7 @@ public class Roll {
 		this.check_skunk();
 	}
 
-	public void check_skunk() {
+	private void check_skunk() {
 	
 		if (isSkunkDeuce()) {
 			result_of_check_skunk=  "deuce skunk";
@@ -36,7 +36,7 @@ public class Roll {
 		
 	}
 	
-	public String get_result_of_check_skunk() {
+	protected String get_result_of_check_skunk() {
 		return result_of_check_skunk;
 	}
 
@@ -66,7 +66,7 @@ public class Roll {
 	}
 
 
-	public Dice getDice() {
+	protected Dice getDice() {
 		return dice;
 	}
 

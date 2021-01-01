@@ -37,7 +37,7 @@ public class Turn {
 		
 	}
 
-	public void start_roll() {
+	protected void start_roll() {
 		roll_number = roll_number+1;
 		if (lastRoll.get_result_of_check_skunk() == "deuce skunk") {
 		
@@ -69,19 +69,19 @@ public class Turn {
 
 	}
 	
-	public void end_roll() {
+	protected void end_roll() {
 		message_after_each_turn ="End of the turn. Score for this turn is " + this.get_turn_score() + ". Chip penality is " + this.get_chip_number_to_lose() + "." + message_summary_each_roll;
 
 	}
 
-	public void continue_game(Roll roll) {
+	protected void continue_game(Roll roll) {
 		if (stop_roll == false && wants_to_play == true) {
 			this.lastRoll = roll;
 			this.start_roll();
 		}
 	}
 
-	public void continue_game() {
+	protected void continue_game() {
 		if (stop_roll == false && wants_to_play == true) {
 			this.lastRoll = new Roll();
 			this.start_roll();
