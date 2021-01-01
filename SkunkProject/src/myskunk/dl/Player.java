@@ -30,7 +30,7 @@ public class Player {
 	}
 
 	public String get_result() {
-		return "Your scope is " + this.get_number_of_score()+ ". You have "+this.number_of_chip+" chips";
+		return "Your scope is " + this.get_number_of_score()+ ". You have "+this.number_of_chip+" chips.";
 	}
 	
 	

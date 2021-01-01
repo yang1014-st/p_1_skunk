@@ -16,14 +16,16 @@ public class Game {
 
 	public void end_game() {
 		turn.end_roll();
-		message_after_each_turn = turn.get_message_after_each_turn();
+		player.set_number_of_score(turn.get_turn_score());
+		player.lose_chip(turn.get_chip_number_to_lose());
+		message_after_each_turn = turn.get_message_after_each_turn() + "\n"+ player.get_result();
 		
 
 	}
 
 	public void continue_game() {
 		turn.continue_game();
-		message_after_each_roll = turn.get_message_after_each_roll();
+		message_after_each_roll = turn.get_message_after_each_roll() ;
 	}
 
 	public Turn get_turn() {
@@ -31,7 +33,7 @@ public class Game {
 	}
 
 	public String get_message_after_each_turn() {
-		return this.message_after_each_turn;
+		return this.message_after_each_turn ;
 	}
 
 	public String get_message_after_each_roll() {
