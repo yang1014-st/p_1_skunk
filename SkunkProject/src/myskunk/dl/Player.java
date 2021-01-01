@@ -6,6 +6,7 @@ public class Player {
 	private int number_of_score;
 	private String player_name;
 	private int chip_number_to_lose;
+	private String player_result;
 
 	public Player(int number_of_chip, String player_name) {
 		this.number_of_chip = number_of_chip;
@@ -31,9 +32,12 @@ public class Player {
 
 	}
 
-	public String get_result() {
-		return get_name() + " - Your scope is " + this.get_number_of_score() + ". You lost " + this.get_chip_number_to_lose() + " chips. You have " + this.number_of_chip
+	public void check_player_result() {
+		player_result = get_name() + " - Your scope is " + this.get_number_of_score() + ". You lost " + this.get_chip_number_to_lose() + " chips. You have " + this.number_of_chip
 				+ " chips.";
+	}
+	public String player_result() {
+		return this.player_result;
 	}
 	
 	public String get_name() {

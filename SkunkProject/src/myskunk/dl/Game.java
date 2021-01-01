@@ -21,10 +21,11 @@ public class Game {
 	}
 
 	public void end_game() {
-		turn.end_roll();
+		turn.end_turn();
 		player.set_number_of_score(turn.get_turn_score());
 		player.lose_chip(turn.get_chip_number_to_lose());
-		message_after_each_turn = this.player.get_name() + " - "+ turn.get_message_after_each_turn() + "\n"+ player.get_result();
+		player.check_player_result();
+		message_after_each_turn = this.player.get_name() + " - "+ turn.get_message_after_each_turn() + "\n"+ player.player_result();
 		
 
 	}
@@ -32,12 +33,12 @@ public class Game {
 
 	
 	public void continue_game() {
-		turn.continue_game();
+		turn.continue_turn();
 		message_after_each_roll = this.player.get_name() + " - " + turn.get_message_after_each_roll() ;
 	}
 	
 	public void continue_game(Turn roll) {
-		turn.continue_game(turn.getLastRoll());
+		turn.continue_turn(turn.getLastRoll());
 		message_after_each_roll =this.player.get_name() + " - " +turn.get_message_after_each_roll() ;
 	}
 	
