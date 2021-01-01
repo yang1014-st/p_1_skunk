@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestController {
 
 	@Test
-	void test_1turn_choose_n() {
+	void test_1turn_enter_n() {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'n');
 		controller.run();
