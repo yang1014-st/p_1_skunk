@@ -1,4 +1,6 @@
-package skunk.domain;
+package myskunk.dl;
+
+import myskunk.dl.Die;
 
 public class PredictableDie extends Die {
 

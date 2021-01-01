@@ -1,5 +1,5 @@
 package myskunk.pl;
-import skunk.domain.Controller;
+import myskunk.dl.Controller;
 public class SkunkApp {
 	private static  Controller controller;
 	public SkunkApp()

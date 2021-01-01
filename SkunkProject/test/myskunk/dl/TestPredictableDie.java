@@ -1,4 +1,4 @@
-package skunk.domain;
+package myskunk.dl;
 
 import static org.junit.jupiter.api.Assertions.*;
 

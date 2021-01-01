@@ -1,8 +1,11 @@
-package skunk.domain;
+package myskunk.dl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import myskunk.dl.Dice;
+import myskunk.dl.Roll;
 
 class TestRoll {
 

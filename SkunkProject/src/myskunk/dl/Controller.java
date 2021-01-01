@@ -1,4 +1,4 @@
-package skunk.domain;
+package myskunk.dl;
 
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;

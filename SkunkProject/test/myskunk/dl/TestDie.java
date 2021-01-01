@@ -1,8 +1,10 @@
-package skunk.domain;
+package myskunk.dl;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import myskunk.dl.Die;
 
 public class TestDie {
 
