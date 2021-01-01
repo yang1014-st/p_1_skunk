@@ -1,40 +1,47 @@
 package skunk.domain;
 
-import edu.princeton.cs.introcs.*;
+import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.introcs.StdOut;
 
 public class Controller {
-	private Turn turn;
-	private Player player;
-	private String message_after_each_turn;
-	private String message_after_each_roll;
 
-	public void start_game() {
-		turn = new Turn();
-		player = new Player(50);
+	public static  void run (){
 
-	}
+		Game controller = new Game();
 
-	public void end_game() {
-		turn.end_roll();
-		message_after_each_turn = turn.get_message_after_each_turn();
+		char wants_to_roll;
+		
+		controller.start_game();
+		
+		StdOut.println("Welcome to play Skunk!");
+		StdOut.println("Do you want to roll? y or n =>");
+		wants_to_roll = StdIn.readLine().toLowerCase().charAt(0);
 
-	}
+	
 
-	public void continue_game() {
-		turn.continue_game();
-		message_after_each_roll = turn.get_message_after_each_roll();
-	}
+		if (wants_to_roll == 'y') {
 
-	public Turn get_turn() {
-		return this.turn;
-	}
+			while (wants_to_roll == 'y') {
+				controller.continue_game();
+				StdOut.println(controller.get_message_after_each_roll());
 
-	public String get_message_after_each_turn() {
-		return this.message_after_each_turn;
-	}
+				if (controller.get_turn().getLastRoll().get_result_of_check_skunk() == "not skunk") {
+					StdOut.println("Do you want to roll? y or n =>");
+					wants_to_roll = StdIn.readLine().toLowerCase().charAt(0);
+				}
 
-	public String get_message_after_each_roll() {
-		return this.message_after_each_roll;
+				else {
+					break;
+				}
+			}
+			controller.end_game();
+			StdOut.println(controller.get_message_after_each_turn());
+
+		} else if (wants_to_roll == 'n') {
+			controller.end_game();
+			StdOut.println(controller.get_message_after_each_turn());
+		}
+
 	}
 
 }
