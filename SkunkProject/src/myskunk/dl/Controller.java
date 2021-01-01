@@ -7,7 +7,7 @@ public class Controller {
 	private char wants_to_roll;
 	private Boolean wants_to_test = false;
 	private char wants_to_roll_test;
-	private String result;
+	private String turn_result;
 	
 
 	
@@ -22,6 +22,7 @@ public class Controller {
 
 			while (wants_to_roll == 'y') {
 				game.continue_game();
+			
 				StdOut.println(game.get_message_after_each_roll());
 
 				if (game.get_turn().getLastRoll().get_result_of_check_skunk() == "not skunk") {
@@ -29,30 +30,48 @@ public class Controller {
 				}
 
 				else {
+					end_game_with_skunk(game);
+					StdOut.println(this.get_turn_result());
 					break;
 				}
 			}
-			end_game(game);
-			StdOut.println(this.get_result());
+			
+			if (wants_to_roll == 'n') {
+				end_game_with_not_select_y(game);
+				StdOut.println(this.get_turn_result());
+			}
+			
+			
+			
 
 		} else {
-			end_game(game);
-			StdOut.println(this.get_result());
+			end_game_with_not_select_y(game);
+			StdOut.println(this.get_turn_result());
+
 		}
 
 	}
 
 
 
-	private void end_game(Game game) {
-		StdOut.println();
+	private void end_game_with_skunk(Game game) {
 		game.end_game();
-		result = "You did not select 'y'." + "\n" + game.get_message_after_each_turn();
+		turn_result =  "-----------------------------" +"\n"+ game.get_message_after_each_turn();
+		
+	}
+
+
+
+	private void end_game_with_not_select_y(Game game) {
+				
+		game.end_game();
+		turn_result =  "-----------------------------" +"\n"
+		+"You did not select 'y'." + "\n"+ game.get_message_after_each_turn();
 		
 	}
 	
-	public String get_result() {
-		return result;
+	public String get_turn_result() {
+		return turn_result;
 	}
 
 

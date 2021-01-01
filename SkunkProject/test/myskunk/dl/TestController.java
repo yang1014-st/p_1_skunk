@@ -11,9 +11,10 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'n');
 		controller.run();
-		assertEquals("You did not select 'y'." + "\n" 
-				+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-				+"Your scope is 0. You have 50 chips.", controller.get_result());
+		assertEquals("-----------------------------" +"\n"
+		            +"You did not select 'y'." + "\n"
+					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
+					+"Your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
 	
 	@Test
@@ -22,9 +23,10 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'd');
 		controller.run();
-		assertEquals("You did not select 'y'." + "\n" 
-				+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-				+"Your scope is 0. You have 50 chips.", controller.get_result());
+		assertEquals("-----------------------------" +"\n"
+				    +"You did not select 'y'." + "\n"
+					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
+					+ "Your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
 	
 	@Test
@@ -32,13 +34,9 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'y');
 		controller.run();
-		assertNotEquals("You did not select 'y'." + "\n" 
-				+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-				+"Your scope is 0. You have 50 chips.", controller.get_result());
+		assertNotEquals("-----------------------------" +"\n"+"You did not select 'y'." + "\n"
+					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
+					+"Your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
-	
-
-	
-	
 
 }
