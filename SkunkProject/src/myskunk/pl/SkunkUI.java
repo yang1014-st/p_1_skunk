@@ -11,6 +11,10 @@ public class SkunkUI {
 		
 	}
 
+	public void print(String string) {
+		StdOut.print(string);
+		
+	}
 	public String readLine() {
 		return StdIn.readLine();
 	}
@@ -26,7 +30,14 @@ public class SkunkUI {
 		
 
 		  
-		  StdOut.println("End");
+	
+	}
+
+	public String promptReadAndReturn(String question) {
+		
+		StdOut.print(question + " => ");
+		String result = StdIn.readLine();
+		return result;
 	}
 
 }
