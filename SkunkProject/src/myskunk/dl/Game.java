@@ -17,6 +17,7 @@ public class Game {
 	public void end_game() {
 		turn.end_roll();
 		message_after_each_turn = turn.get_message_after_each_turn();
+		
 
 	}
 
@@ -37,4 +38,7 @@ public class Game {
 		return this.message_after_each_roll;
 	}
 
+	public Player get_player() {
+		return this.player;
+	}
 }

@@ -4,6 +4,7 @@ public class Player {
 	
 	private int number_of_chip;
 	private int number_of_score;
+	
 
 	public Player(int number_of_chip) {
 		this.number_of_chip = number_of_chip;
@@ -27,5 +28,11 @@ public class Player {
 		this.number_of_score = this.number_of_score + get_turn_score;
 		
 	}
+
+	public String get_result() {
+		return "Your scope is " + this.get_number_of_chips() + ". You have "+this.number_of_chip+" chips";
+	}
+	
+	
 
 }
