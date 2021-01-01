@@ -13,7 +13,7 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'n');
 		controller.before_run("Jie");
-		controller.run();
+		controller.run(true);
 		
 		assertEquals("-----------------------------" + "\n"
 			    +"You did not select 'y'." + "\n"
@@ -27,7 +27,7 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'd');
 		controller.before_run("Jie");
-		controller.run();
+		controller.run(true);
 		assertEquals("-----------------------------" + "\n"
 				    +"You did not select 'y'." + "\n"
 					+"Jie - End of the turn. Score for this turn is 0. Chip penality is 0." + "\n" 
@@ -39,7 +39,7 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'y');
 		controller.before_run("Jie");
-		controller.run();
+		controller.run(true);
 		assertNotEquals("-----------------------------" + "\n"
 			    +"You did not select 'y'." + "\n"
 				+"Jie - End of the turn. Score for this turn is 0. Chip penality is 0." + "\n" 

@@ -27,7 +27,7 @@ public class Controller {
 
 	}
 	
-	public void run() {
+	public void run(Boolean want_to_test) {
 
 		
 	
@@ -46,7 +46,11 @@ public class Controller {
 
 				else {
 					end_game_with_skunk(game);
-					ui.print_paragraph(this.get_turn_result());
+					
+					if (want_to_test == false) {
+						ui.print_paragraph(this.get_turn_result());
+					}
+					
 					break;
 				}
 			}

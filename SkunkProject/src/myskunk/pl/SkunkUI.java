@@ -15,8 +15,18 @@ public class SkunkUI {
 		return StdIn.readLine();
 	}
 
-	public void print_paragraph(String get_turn_result) {
-		StdOut.println(get_turn_result);		
+	public void print_paragraph(String turn_result) {
+		String[] lines = turn_result.split("\\r?\\n");
+		
+		  for (String line : lines) {
+	            System.out.println(line);
+	            StdOut.println("Please press Enter to continue.");
+				StdIn.readLine();
+	        }
+		
+
+		  
+		  StdOut.println("End");
 	}
 
 }
