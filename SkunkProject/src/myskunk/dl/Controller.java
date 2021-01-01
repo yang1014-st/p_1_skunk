@@ -29,9 +29,9 @@ public class Controller {
 	
 		ask_user_if_want_to_roll();
 
-		if (wants_to_roll == 'y') {
+		if (Character.toLowerCase(wants_to_roll)=='y') {
 
-			while (wants_to_roll == 'y') {
+			while (Character.toLowerCase(wants_to_roll)=='y' ) {
 				game.continue_game();
 			
 				StdOut.println(game.get_message_after_each_roll());
@@ -47,7 +47,7 @@ public class Controller {
 				}
 			}
 			
-			if (wants_to_roll == 'n') {
+			if (Character.toLowerCase(wants_to_roll)=='n') {
 				end_game_with_not_select_y(game);
 				StdOut.println(this.get_turn_result());
 			}

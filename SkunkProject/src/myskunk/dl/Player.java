@@ -35,8 +35,6 @@ public class Player {
 				+ " chips.";
 	}
 
-	public void set_name(String name) {
-		this.player_name = name;
-	}
+
 
 }
