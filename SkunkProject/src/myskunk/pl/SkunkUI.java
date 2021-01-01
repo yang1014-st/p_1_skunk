@@ -15,9 +15,7 @@ public class SkunkUI {
 		StdOut.print(string);
 		
 	}
-	public String readLine() {
-		return StdIn.readLine();
-	}
+
 
 	public void print_paragraph(String turn_result) {
 		String[] lines = turn_result.split("\\r?\\n");
@@ -38,6 +36,11 @@ public class SkunkUI {
 		StdOut.print(question + " => ");
 		String result = StdIn.readLine();
 		return result;
+	}
+
+	public String readLine() {
+		
+		return StdIn.readLine();
 	}
 
 }

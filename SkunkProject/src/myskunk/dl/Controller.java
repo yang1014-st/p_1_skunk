@@ -21,18 +21,23 @@ public class Controller {
 	public void before_run() {
 		ui = new SkunkUI();
 		ui.println("Welcome to play Skunk!");
-		String input_number_of_players = ui.promptReadAndReturn("How many players?");
+		String input_number_of_players = ask_uses("How many playsers?");
 		this.number_of_players = Integer.parseInt(input_number_of_players);
 		player_names = new String [number_of_players];
 		players = new Player [number_of_players];
 		for (int playerNumber = 0; playerNumber < number_of_players; playerNumber++)
 		{
-			ui.print("Enter name of player " + (playerNumber + 1) + ": ");
-			player_names[playerNumber] = ui.readLine();
+			
+			player_names[playerNumber] =ask_uses("Enter name of player " + (playerNumber + 1) + ": ");
 			players[playerNumber]=new Player(50,player_names[playerNumber] );
 		}
 		game = new Game(players,player_names,number_of_players);
 
+	}
+
+	private String ask_uses(String question) {
+		String input_number_of_players = ui.promptReadAndReturn(question);
+		return input_number_of_players;
 	}
 
 	public void before_run(String playe_name) {
@@ -93,8 +98,9 @@ public class Controller {
 			char wants_to_roll;
 			try {
 
-				ui.println("Do you want to roll? y or n =>");
-				return ui.readLine().toLowerCase().charAt(0);
+				return ask_uses("Do you want to roll? y/n ").toLowerCase().charAt(0);
+				
+				
 				
 			} catch (StringIndexOutOfBoundsException e) {
 

@@ -2,40 +2,53 @@ package myskunk.dl;
 
 public class Player {
 
-	private int number_of_chip;
-	private int number_of_score;
+	private int initial_number_of_chip;
+	private int accumulated_chip_number_to_lose;
+	private int chip_number_to_lose_in_a_turn;
+	private int turn_score;
+	private int game_score;
+
+	
 	private String player_name;
-	private int chip_number_to_lose;
 	private String player_result;
 
+
 	public Player(int number_of_chip, String player_name) {
-		this.number_of_chip = number_of_chip;
+		this.initial_number_of_chip = number_of_chip;
 		this.player_name = player_name;
+		
 	}
 
-	public int get_number_of_chips() {
-		return number_of_chip;
+	public void set_game_score(int game_score) {
+		this.game_score =game_score;
+		
+	}
+	
+	public int get_game_Score() {
+		return game_score;
 	}
 
-	public int get_number_of_score() {
-		return number_of_score;
+	
+
+	public void lose_chip_in_a_turn(int lose_chip_in_a_turn) {
+		this.chip_number_to_lose_in_a_turn = lose_chip_in_a_turn;
+		this.accumulated_chip_number_to_lose = this.accumulated_chip_number_to_lose + lose_chip_in_a_turn;
+		
 	}
 
-	public void lose_chip(int get_chip_number_to_lose) {
-		this.chip_number_to_lose = get_chip_number_to_lose;
-		this.number_of_chip = this.number_of_chip - get_chip_number_to_lose;
-	}
-
-	public void set_number_of_score(int get_turn_score) {
-
-		this.number_of_score = this.number_of_score + get_turn_score;
+	public void add_turn_score(int turn_score) {
+		
+		game_score = game_score + turn_score;
+		
 
 	}
+
 
 	public void check_player_result() {
-		player_result = get_name() + " - Your scope is " + this.get_number_of_score() + ". You lost " + this.get_chip_number_to_lose() + " chips. You have " + this.number_of_chip
+		player_result = get_name() + " - Your game score is " + this.game_score + ". You lost " + this.accumulated_chip_number_to_lose + " chips. You have " + (this.initial_number_of_chip-this.accumulated_chip_number_to_lose)
 				+ " chips.";
 	}
+	
 	public String get_player_result() {
 		return this.player_result;
 	}
@@ -44,9 +57,8 @@ public class Player {
 		return this.player_name;
 	}
 
-	public int get_chip_number_to_lose() {
-		return this.chip_number_to_lose;
-	}
+
+
 
 
 
