@@ -15,4 +15,8 @@ public class SkunkUI {
 		return StdIn.readLine();
 	}
 
+	public void print_paragraph(String get_turn_result) {
+		StdOut.println(get_turn_result);		
+	}
+
 }

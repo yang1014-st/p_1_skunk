@@ -1,6 +1,5 @@
 package myskunk.pl;
-import edu.princeton.cs.introcs.StdIn;
-import edu.princeton.cs.introcs.StdOut;
+
 import myskunk.dl.Controller;
 public class SkunkApp {
 

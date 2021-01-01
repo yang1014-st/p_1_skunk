@@ -46,7 +46,7 @@ public class Controller {
 
 				else {
 					end_game_with_skunk(game);
-					ui.println(this.get_turn_result());
+					ui.print_paragraph(this.get_turn_result());
 					break;
 				}
 			}
