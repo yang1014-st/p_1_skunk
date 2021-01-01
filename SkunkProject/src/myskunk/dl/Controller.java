@@ -22,7 +22,7 @@ public class Controller {
 	}
 	
 	public void before_run(String playe_name) {
-		
+		ui= new SkunkUI();
 		game = new Game(playe_name);
 
 	}
