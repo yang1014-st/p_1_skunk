@@ -33,9 +33,11 @@ public class Controller {
 				}
 			}
 			end_game(game);
+			StdOut.println(this.get_result());
 
 		} else {
 			end_game(game);
+			StdOut.println(this.get_result());
 		}
 
 	}

@@ -27,6 +27,8 @@ class TestController {
 				+"Your scope is 0. You have 50 chips.", controller.get_result());
 	}
 	
+
+	
 	
 
 }
