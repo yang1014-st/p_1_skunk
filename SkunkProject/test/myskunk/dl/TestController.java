@@ -18,7 +18,7 @@ class TestController {
 	
 	@Test
 	void test_1turn_enter_wrong_value() {
-		fail();
+		
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'd');
 		controller.run();
