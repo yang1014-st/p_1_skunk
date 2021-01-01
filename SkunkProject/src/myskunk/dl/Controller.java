@@ -11,7 +11,6 @@ public class Controller {
 
 		char wants_to_roll;
 		
-		controller.start_game();
 		
 		StdOut.println("Welcome to play Skunk!");
 		StdOut.println("Do you want to roll? y or n =>");

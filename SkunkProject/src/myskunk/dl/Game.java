@@ -8,8 +8,14 @@ public class Game {
 	private String message_after_each_turn;
 	private String message_after_each_roll;
 
-	public void start_game() {
+	public Game() {
 		turn = new Turn();
+		player = new Player(50);
+
+	}
+	
+	public Game(Turn turn) {
+		this.turn = turn;
 		player = new Player(50);
 
 	}
@@ -23,10 +29,19 @@ public class Game {
 
 	}
 
+
+	
 	public void continue_game() {
 		turn.continue_game();
 		message_after_each_roll = turn.get_message_after_each_roll() ;
 	}
+	
+	public void continue_game(Turn roll) {
+		turn.continue_game(turn.getLastRoll());
+		message_after_each_roll = turn.get_message_after_each_roll() ;
+	}
+	
+
 
 	public Turn get_turn() {
 		return this.turn;
@@ -43,4 +58,6 @@ public class Game {
 	public Player get_player() {
 		return this.player;
 	}
+	
+
 }
