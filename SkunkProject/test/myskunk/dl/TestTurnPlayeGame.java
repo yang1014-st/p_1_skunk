@@ -9,7 +9,7 @@ import myskunk.dl.Player;
 import myskunk.dl.Roll;
 import myskunk.dl.Turn;
 
-class TestTurnAndTestPlayer {
+class TestTurnPlayeGame {
 
 	@Test
 	void test_with_predictable_die_1and1() {
@@ -297,11 +297,22 @@ class TestTurnAndTestPlayer {
 	}
 
 	@Test
-	void test_want_to_stop() {
+	void test_end_game() {
 		Game game = new Game();
 		game.continue_game();
 		int turn_score_1 = game.get_turn().get_turn_score();
 		game.end_game();
 		assertTrue(game.get_turn().get_turn_score() ==turn_score_1);
 	}
+	
+	@Test
+	void test_want_to_stop() {
+		fail();
+		Turn turn = new Turn();
+		turn.continue_game();
+		int turn_score_1 = turn.get_turn_score();
+		turn.want_to_stop();
+		assertTrue(turn.get_turn_score() ==turn_score_1);
+	}
 }
+
