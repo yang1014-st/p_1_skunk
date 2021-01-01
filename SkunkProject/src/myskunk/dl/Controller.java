@@ -57,7 +57,7 @@ public class Controller {
 			
 			if (Character.toLowerCase(wants_to_roll)=='n') {
 				end_game_with_not_select_y(game);
-				ui.println(this.get_turn_result());
+				ui.print_paragraph(this.get_turn_result());
 			}
 			
 			
