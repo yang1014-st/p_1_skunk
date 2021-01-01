@@ -307,7 +307,7 @@ class TestTurnPlayeGame {
 	
 	@Test
 	void test_want_to_stop() {
-		fail();
+		
 		Turn turn = new Turn();
 		turn.continue_game();
 		int turn_score_1 = turn.get_turn_score();
