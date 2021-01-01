@@ -33,12 +33,7 @@ public class Dice {
 		this.add_die1_and_die2();
 	}
 
-	public Dice(Die die1, Die die2) // overloaded constructor
-	{
-		this.die1 = die1;
-		this.die2 = die2;
-		this.add_die1_and_die2();
-	}
+
 
 	// Instance methods can also be declared anywhere in body of class
 	// One convention: after the constructors

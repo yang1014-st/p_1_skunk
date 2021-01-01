@@ -12,13 +12,10 @@ class TestRoll {
 	@Test
 	void test_with_predictable_die_1and2() {
 		
-		PredictableDie die1 = new PredictableDie();
-		die1.roll();
-		PredictableDie die2 = new PredictableDie();
-		die2.roll();
-		die2.roll();
-		Dice dice = new Dice(die1, die2);
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_1and2();
 		assertEquals(3,dice.get_sum_of_die1_and_die2());
+		
 		Roll roll = new Roll(dice);
 		assertEquals("deuce skunk", roll.get_result_of_check_skunk());
 	}
@@ -26,9 +23,10 @@ class TestRoll {
 	@Test
 	void test_with_predictable_die_1and1() {
 		
-		PredictableDie die1 = new PredictableDie();
-		die1.roll();
-		Dice dice = new Dice(die1, die1);
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_1and1();
+		assertEquals(2,dice.get_sum_of_die1_and_die2());
+		
 		Roll roll = new Roll(dice);
 		assertEquals("double skunk", roll.get_result_of_check_skunk());
 	}
@@ -36,13 +34,11 @@ class TestRoll {
 	@Test
 	void test_with_predictable_die_1and3() {
 		
-		PredictableDie die1 = new PredictableDie();
-		PredictableDie die2 = new PredictableDie();
-		die1.roll();
-		die2.roll();
-		die2.roll();
-		die2.roll();
-		Dice dice = new Dice(die1, die2);
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_1and3();
+		assertEquals(4,dice.get_sum_of_die1_and_die2());
+
+
 		Roll roll = new Roll(dice);
 		assertEquals("regular skunk", roll.get_result_of_check_skunk());
 	}
@@ -50,14 +46,10 @@ class TestRoll {
 	@Test
 	void test_with_predictable_die_2and3() {
 		
-		PredictableDie die1 = new PredictableDie();
-		PredictableDie die2 = new PredictableDie();
-		die1.roll();
-		die1.roll();
-		die2.roll();
-		die2.roll();
-		die2.roll();
-		Dice dice = new Dice(die1, die2);
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_2and3();
+		assertEquals(5,dice.get_sum_of_die1_and_die2());
+		
 		Roll roll = new Roll(dice);
 		assertEquals("not skunk", roll.get_result_of_check_skunk());
 	}

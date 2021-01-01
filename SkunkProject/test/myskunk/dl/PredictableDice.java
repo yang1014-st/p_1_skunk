@@ -33,4 +33,33 @@ public class PredictableDice extends Dice{
 		super.add_die1_and_die2();
 
 	}
+	
+	public void test_with_predictable_die_2and3() {
+		die1.roll();
+		die1.roll();
+		die2.roll();
+		die2.roll();
+		die2.roll();
+		super.add_die1_and_die2();
+
+	}
+	
+	public void test_with_predictable_die_3and2() {
+		die1.roll();
+		die1.roll();
+		die1.roll();
+		die2.roll();
+		die2.roll();
+		super.add_die1_and_die2();
+
+	}
+	
+	public void test_with_predictable_die_2and2() {
+		die1.roll();
+		die1.roll();
+		die2.roll();
+		die2.roll();
+		super.add_die1_and_die2();
+
+	}
 }
