@@ -3,41 +3,38 @@ package skunk.domain;
 import edu.princeton.cs.introcs.*;
 
 public class Controller {
+	private Turn turn;
+	private Player player;
+	private String message_after_each_turn;
+	private String message_after_each_roll;
 
-	public static void main(String[] args) {
+	public void start_game() {
+		turn = new Turn();
+		player = new Player(50);
 
-		char wants_to_roll;
+	}
 
-		StdOut.println("Welcome to play Skunk!");
-		StdOut.println("Do you want to roll? y or n =>");
-		wants_to_roll = StdIn.readLine().toLowerCase().charAt(0);
+	public void end_game() {
+		turn.end_roll();
+		message_after_each_turn = turn.get_message_after_each_turn();
 
-		
-		if (wants_to_roll == 'y') {
-			StdOut.println("y");
-		}
-		else  {
-			StdOut.println("You did not enter 'y'");
-			StdOut.println();
-		}
-//		if (wants_to_roll == 'y') {
-//			
-//			StdOut.println(turn.get_message_after_each_roll());
-//			while (wants_to_roll == 'y' && turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
-//				StdOut.println("Do you want to roll? y or n =>");
-//				wants_to_roll = StdIn.readLine().toLowerCase().charAt(0);
-//				turn.continue_game();
-//			}
-//			StdOut.println(turn.get_message_after_each_turn());
-//
-//			if (wants_to_roll == 'n') {
-//				StdOut.println("You did not enter 'y'. End of the turn.");
-//			}
-//
-//		} else if (wants_to_roll == 'n') {
-//			
-//		}
+	}
 
+	public void continue_game() {
+		turn.continue_game();
+		message_after_each_roll = turn.get_message_after_each_roll();
+	}
+
+	public Turn get_turn() {
+		return this.turn;
+	}
+
+	public String get_message_after_each_turn() {
+		return this.message_after_each_turn;
+	}
+
+	public String get_message_after_each_roll() {
+		return this.message_after_each_roll;
 	}
 
 }
