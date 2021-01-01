@@ -15,10 +15,10 @@ class TestController {
 		controller.before_run("Jie");
 		controller.run();
 		
-		assertEquals("-----------------------------" +"\n"
+		assertEquals("-----------------------------" + "\n"
 			    +"You did not select 'y'." + "\n"
-				+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-				+ "Jie, your scope is 0. You have 50 chips.", controller.get_turn_result());
+				+"Jie - End of the turn. Score for this turn is 0. Chip penality is 0." + "\n" 
+				+ "Jie - Your scope is 0. You lost 0 chips. You have 50 chips.", controller.get_turn_result());
 	}
 	
 	@Test
@@ -28,10 +28,10 @@ class TestController {
 		controller.ask_user_if_want_to_roll(true, 'd');
 		controller.before_run("Jie");
 		controller.run();
-		assertEquals("-----------------------------" +"\n"
+		assertEquals("-----------------------------" + "\n"
 				    +"You did not select 'y'." + "\n"
-					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-					+ "Jie, your scope is 0. You have 50 chips.", controller.get_turn_result());
+					+"Jie - End of the turn. Score for this turn is 0. Chip penality is 0." + "\n" 
+					+ "Jie - Your scope is 0. You lost 0 chips. You have 50 chips.", controller.get_turn_result());
 	}
 	
 	@Test
@@ -40,9 +40,10 @@ class TestController {
 		controller.ask_user_if_want_to_roll(true, 'y');
 		controller.before_run("Jie");
 		controller.run();
-		assertNotEquals("-----------------------------" +"\n"+"You did not select 'y'." + "\n"
-					+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
-					+"Jie, your scope is 0. You have 50 chips.", controller.get_turn_result());
+		assertNotEquals("-----------------------------" + "\n"
+			    +"You did not select 'y'." + "\n"
+				+"Jie - End of the turn. Score for this turn is 0. Chip penality is 0." + "\n" 
+				+ "Jie - Your scope is 0. You have 50 chips.", controller.get_turn_result());
 	}
 
 }

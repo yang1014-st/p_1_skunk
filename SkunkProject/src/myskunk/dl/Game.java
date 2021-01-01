@@ -24,7 +24,7 @@ public class Game {
 		turn.end_roll();
 		player.set_number_of_score(turn.get_turn_score());
 		player.lose_chip(turn.get_chip_number_to_lose());
-		message_after_each_turn = turn.get_message_after_each_turn() + "\n"+ player.get_result();
+		message_after_each_turn = this.player.get_name() + " - "+ turn.get_message_after_each_turn() + "\n"+ player.get_result();
 		
 
 	}
@@ -33,12 +33,12 @@ public class Game {
 	
 	public void continue_game() {
 		turn.continue_game();
-		message_after_each_roll = turn.get_message_after_each_roll() ;
+		message_after_each_roll = this.player.get_name() + " - " + turn.get_message_after_each_roll() ;
 	}
 	
 	public void continue_game(Turn roll) {
 		turn.continue_game(turn.getLastRoll());
-		message_after_each_roll = turn.get_message_after_each_roll() ;
+		message_after_each_roll =this.player.get_name() + " - " +turn.get_message_after_each_roll() ;
 	}
 	
 

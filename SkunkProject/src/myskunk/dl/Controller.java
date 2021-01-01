@@ -1,7 +1,7 @@
 package myskunk.dl;
 
-import edu.princeton.cs.introcs.StdIn;
-import edu.princeton.cs.introcs.StdOut;
+
+import myskunk.pl.SkunkUI;
 
 public class Controller {
 	private char wants_to_roll;
@@ -9,16 +9,20 @@ public class Controller {
 	private char wants_to_roll_test;
 	private String turn_result;
 	private Game game;
+	private SkunkUI ui;
 	
 
+	
 	public void before_run() {
-		StdOut.println("Welcome to play Skunk!");
-		StdOut.println("What's your name?");
-		game = new Game(StdIn.readLine());
+		ui= new SkunkUI();
+		ui.println("Welcome to play Skunk!");
+		ui.println("What's your name?");
+		game = new Game(ui.readLine());
 
 	}
 	
 	public void before_run(String playe_name) {
+		
 		game = new Game(playe_name);
 
 	}
@@ -34,7 +38,7 @@ public class Controller {
 			while (Character.toLowerCase(wants_to_roll)=='y' ) {
 				game.continue_game();
 			
-				StdOut.println(game.get_message_after_each_roll());
+				ui.println(game.get_message_after_each_roll());
 
 				if (game.get_turn().getLastRoll().get_result_of_check_skunk() == "not skunk") {
 					ask_user_if_want_to_roll();
@@ -42,14 +46,14 @@ public class Controller {
 
 				else {
 					end_game_with_skunk(game);
-					StdOut.println(this.get_turn_result());
+					ui.println(this.get_turn_result());
 					break;
 				}
 			}
 			
 			if (Character.toLowerCase(wants_to_roll)=='n') {
 				end_game_with_not_select_y(game);
-				StdOut.println(this.get_turn_result());
+				ui.println(this.get_turn_result());
 			}
 			
 			
@@ -57,7 +61,7 @@ public class Controller {
 
 		} else {
 			end_game_with_not_select_y(game);
-			StdOut.println(this.get_turn_result());
+			ui.println(this.get_turn_result());
 
 		}
 
@@ -93,8 +97,8 @@ public class Controller {
 			char wants_to_roll;
 			try {
 
-				StdOut.println("Do you want to roll? y or n =>");
-				wants_to_roll = StdIn.readLine().toLowerCase().charAt(0);
+				ui.println("Do you want to roll? y or n =>");
+				wants_to_roll = ui.readLine().toLowerCase().charAt(0);
 				this.wants_to_roll = wants_to_roll;
 			} catch (StringIndexOutOfBoundsException e) {
 
