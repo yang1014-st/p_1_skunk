@@ -41,19 +41,21 @@ public class Turn {
 
 	protected void start_turn() {
 		roll_number = roll_number+1;
+		double_skunk=false;
 		if (lastRoll.get_result_of_check_skunk() == "deuce skunk") {
 		
 			turn_score = 0;
 			chip_number_to_lose = 2;
 			message_after_each_roll = "Roll"+roll_number +": "+"Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.";
 			message_summary_each_roll = message_summary_each_roll + "\n"+message_after_each_roll;
+			
 			stop_roll = true;
 		} else if (lastRoll.get_result_of_check_skunk() == "double skunk") {
 			turn_score = 0;
 			chip_number_to_lose = 4;
 			message_after_each_roll =  "Roll"+roll_number +": "+"Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.";
 			message_summary_each_roll = message_summary_each_roll + "\n"+message_after_each_roll;
-			this.double_skunk=true;
+		    double_skunk=true;
 			stop_roll = true;
 		} else if (lastRoll.get_result_of_check_skunk() == "regular skunk") {
 			turn_score = 0;

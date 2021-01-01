@@ -8,7 +8,7 @@ public class SkunkApp {
 		Controller controller = new Controller();
 		controller.before_run();
 	
-		controller.get_turn_result();
+	
 		
 	}
 

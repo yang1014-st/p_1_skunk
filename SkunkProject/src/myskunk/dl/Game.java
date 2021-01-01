@@ -118,9 +118,9 @@ public class Game {
 		players[current_player_number].lose_chip_in_a_turn(turn.get_chip_number_to_lose());
 		players[current_player_number].check_player_result();
 		
-//		if (this.is_double_skunk = true) {
-//			players[current_player_number].set_game_score(0);
-//		}
+		if (this.is_double_skunk == true) {
+			players[current_player_number].set_game_score(0);
+		}
 		
 		this.message_after_each_turn = "-----------------------------" + "\n" + player_names[current_player_number]
 				+ " - " + turn.get_message_after_each_turn() + "\n"

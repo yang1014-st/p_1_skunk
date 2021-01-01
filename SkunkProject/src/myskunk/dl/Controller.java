@@ -46,50 +46,6 @@ public class Controller {
 
 	}
 
-	public void run(Boolean want_to_test) {
-
-		ask_user_if_want_to_roll();
-
-		if (Character.toLowerCase(wants_to_roll) == 'y') {
-
-			while (Character.toLowerCase(wants_to_roll) == 'y') {
-				game.continue_game();
-
-				ui.println(game.get_message_after_each_roll());
-
-				if (game.get_turn().getLastRoll().get_result_of_check_skunk() == "not skunk") {
-					ask_user_if_want_to_roll();
-				}
-
-				else {
-					end_game_with_skunk(game);
-
-					if (want_to_test == false) {
-						ui.print_paragraph(this.get_turn_result());
-					}
-
-					break;
-				}
-			}
-
-			if (Character.toLowerCase(wants_to_roll) == 'n') {
-				end_game_with_not_select_y(game);
-				ui.print_paragraph(this.get_turn_result());
-			}
-
-		} else {
-			end_game_with_not_select_y(game);
-			ui.println(this.get_turn_result());
-
-		}
-
-	}
-
-
-
-	public String get_turn_result() {
-		return turn_result;
-	}
 
 	protected  char ask_user_if_want_to_roll(Boolean want_to_test) {
 //		ui.println("Do you want to roll? y or n =>");
