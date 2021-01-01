@@ -32,7 +32,7 @@ class TestController {
 		Controller controller = new Controller();
 		controller.ask_user_if_want_to_roll(true, 'y');
 		controller.run();
-		assertEquals("You did not select 'y'." + "\n" 
+		assertNotEquals("You did not select 'y'." + "\n" 
 				+"End of the turn. Score for this turn is 0. Chip penality is 0." + "\n"
 				+"Your scope is 0. You have 50 chips.", controller.get_result());
 	}
