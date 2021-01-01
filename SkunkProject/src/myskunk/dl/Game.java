@@ -4,28 +4,28 @@ import edu.princeton.cs.introcs.*;
 
 public class Game {
 	private Turn turn;
-	private Player player;
+	private Player curent_player;
 	private String message_after_each_turn;
 	private String message_after_each_roll;
 
 	public Game(String player_name) {
 		turn = new Turn();
-		player = new Player(50,player_name);
+		curent_player = new Player(50,player_name);
 
 	}
 	
 	public Game(Turn turn, String player_name) {
 		this.turn = turn;
-		player = new Player(50,player_name);
+		curent_player = new Player(50,player_name);
 
 	}
 
 	protected void end_game() {
 		turn.end_turn();
-		player.set_number_of_score(turn.get_turn_score());
-		player.lose_chip(turn.get_chip_number_to_lose());
-		player.check_player_result();
-		message_after_each_turn = this.player.get_name() + " - "+ turn.get_message_after_each_turn() + "\n"+ player.player_result();
+		curent_player.set_number_of_score(turn.get_turn_score());
+		curent_player.lose_chip(turn.get_chip_number_to_lose());
+		curent_player.check_player_result();
+		message_after_each_turn = this.curent_player.get_name() + " - "+ turn.get_message_after_each_turn() + "\n"+ curent_player.player_result();
 		
 
 	}
@@ -34,12 +34,12 @@ public class Game {
 	
 	protected void continue_game() {
 		turn.continue_turn();
-		message_after_each_roll = this.player.get_name() + " - " + turn.get_message_after_each_roll() ;
+		message_after_each_roll = this.curent_player.get_name() + " - " + turn.get_message_after_each_roll() ;
 	}
 	
 	protected void continue_game(Turn roll) {
 		turn.continue_turn(turn.getLastRoll());
-		message_after_each_roll =this.player.get_name() + " - " +turn.get_message_after_each_roll() ;
+		message_after_each_roll =this.curent_player.get_name() + " - " +turn.get_message_after_each_roll() ;
 	}
 	
 
@@ -57,7 +57,7 @@ public class Game {
 	}
 
 	public Player get_player() {
-		return this.player;
+		return this.curent_player;
 	}
 	
 
