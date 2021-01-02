@@ -10,7 +10,7 @@ class TestController {
 
 	@Test
 	void test_start_controller() {
-		fail();
+		
 		Controller controller = new Controller();
 		controller.before_run(true);
 		assertNotNull(controller.get_game());
