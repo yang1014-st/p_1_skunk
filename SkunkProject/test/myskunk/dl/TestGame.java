@@ -8,10 +8,10 @@ class TestGame {
 
 	@Test
 	void test_() {
-		Player[] players = new Player[2];
+		Player[] players = new Player[3];
 		players[0]=new Player(20,"TestPlayer1");
 		players[1]=new Player (20,"TestPlayer2");
-		players[1]=new Player (20,"TestPlayer3");
+		players[2]=new Player (20,"TestPlayer3");
 		String[] player_names = {"TestPlayer1","TestPlayer2","TestPlayer3"};
 		int number_of_players=2;
 		Game game = new Game(players, player_names,3,true);
@@ -30,13 +30,24 @@ class TestGame {
 		game.get_next_player();
 		assertEquals(1,game.get_current_player_number());
 		assertEquals("TestPlayer1",game.get_players()[0].get_name());
+		assertEquals("TestPlayer2",game.get_players()[1].get_name());
+		assertEquals("TestPlayer3",game.get_players()[2].get_name());
+
 		assertEquals(0,game.get_turn().get_turn_score());
 		
 		game.get_players()[0].set_game_score(0);
 		game.get_players()[1].set_game_score(10);
 		game.get_players()[2].set_game_score(20);
+
+		game.get_winners_numbers();
+		assertEquals(20,game.get_winner_score());
 		
-		exchange_kitty(winner_score);
+		game.exchange_kitty(20);
+		
+		assertEquals(10,game.get_players()[0].get_total_chips());
+		assertEquals(15,game.get_players()[1].get_total_chips());
+
+		
 
 
 		

@@ -90,27 +90,7 @@ public class Game {
 				
 		
 	
-		int[] scores = new int[number_of_players];
-		for (int i=0; i<number_of_players;i++) {
-			scores[i] = players[i].get_game_score() ;
-		}
-		
-		winner_score 	= scores[0]; 
-	
-		for (int i = 0; i < number_of_players; i++) {
-             if (scores[i] > winner_score) 
-             { winner_score = scores[i];
-             }
-        }
-		 
-		
-		
-		for (int i = 0; i < number_of_players; i++) {
-            if (scores[i] == winner_score) 
-            { 
-            	winners.add(i);
-            }
-       }
+		get_winners_numbers();
 		
 		
 		
@@ -163,7 +143,31 @@ public class Game {
 		
 	}
 
-	private void exchange_kitty(int winner_score) {
+	protected void get_winners_numbers() {
+		int[] scores = new int[number_of_players];
+		for (int i=0; i<number_of_players;i++) {
+			scores[i] = players[i].get_game_score() ;
+		}
+		
+		winner_score 	= scores[0]; 
+	
+		for (int i = 0; i < number_of_players; i++) {
+             if (scores[i] > winner_score) 
+             { winner_score = scores[i];
+             }
+        }
+		 
+		
+		
+		for (int i = 0; i < number_of_players; i++) {
+            if (scores[i] == winner_score) 
+            { 
+            	winners.add(i);
+            }
+       }
+	}
+
+	protected void exchange_kitty(int winner_score) {
 		for (int i=0; i<number_of_players;i++) {
 			if (players[i].get_game_score()==0) {
 				players[i].lose_chip_in_a_turn(10);
@@ -283,8 +287,8 @@ public class Game {
 		return players;
 	}
 
-	protected void set_winner_score(int i) {
-		this.winner_score = i;
+	public int get_winner_score() {
+		return winner_score;
 	}
 
 
