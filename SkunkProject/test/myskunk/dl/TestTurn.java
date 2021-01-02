@@ -45,6 +45,19 @@ class TestTurn {
 	
 	@Test
 	void test_with_predictable_die_1and2() {
-		fail();
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_1and2();
+		Roll roll = new Roll(dice);
+		Turn turn = new Turn();
+		turn.test_set_last_turn(roll);
+		turn.start_turn();
+		
+		assertEquals("Roll1: Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.",turn.get_message_after_each_roll());
+
+		turn.end_turn();
+		assertEquals("Your Turn ends. In this turn, your turn score is 0. You lost 2 chips.\n" + 
+				"Start of your Turn Summary:\n" + 
+				"Roll1: Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.",turn.get_message_after_each_turn());
+		
 	}
 }
