@@ -25,17 +25,25 @@ public class Controller {
 		if (want_to_test == false) {
 			ui.println("Welcome to play Skunk!");
 			String input_number_of_players = ask_users("How many playsers?");
-			this.number_of_players = Integer.parseInt(input_number_of_players);
-			player_names = new String[number_of_players];
-			players = new Player[number_of_players];
+			create_players_players_names(input_number_of_players, wants_to_test);
+
+		}
+		game = new Game(players, player_names, number_of_players, wants_to_test);
+
+	}
+
+	protected void create_players_players_names(String input_number_of_players, Boolean wants_to_test) {
+		this.number_of_players = Integer.parseInt(input_number_of_players);
+		player_names = new String[number_of_players];
+		players = new Player[number_of_players];
+		
+		if (wants_to_test == false) {
 			for (int playerNumber = 0; playerNumber < number_of_players; playerNumber++) {
 
 				player_names[playerNumber] = ask_users("Enter name of player " + (playerNumber + 1) + ": ");
 				players[playerNumber] = new Player(50, player_names[playerNumber]);
 			}
-
 		}
-		game = new Game(players, player_names, number_of_players, wants_to_test);
 
 	}
 
@@ -43,6 +51,9 @@ public class Controller {
 		return this.game;
 	}
 
+	protected Player[] get_players() {
+		return this.players;
+	}
 	private String ask_users(String question) {
 		String input_number_of_players = ui.read_question_and_return_answer_from_user(question);
 		return input_number_of_players;

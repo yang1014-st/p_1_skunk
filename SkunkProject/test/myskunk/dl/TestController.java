@@ -27,6 +27,15 @@ class TestController {
 
 	}
 	
+	@Test
+	void test_create_players_players_names() {
+		
+		Controller controller = new Controller();
+		controller.before_run(true);
+		controller.create_players_players_names("4",true);
+		assertNotNull(controller.get_players());
+	}
+	
 
 
 	
