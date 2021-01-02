@@ -89,6 +89,9 @@ class TestTurn {
 	
 	@Test
 	void test_with_normal_die() {
-		fail();
+		Turn turn = new Turn();
+		turn.start_turn();
+		turn.continue_turn();
+		assertNotNull(turn.get_message_after_each_roll());
 	}
 }
