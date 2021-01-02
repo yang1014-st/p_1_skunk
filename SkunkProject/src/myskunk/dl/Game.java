@@ -40,6 +40,8 @@ public class Game {
 		game_not_over = true;
 		turn_not_over = true;
 		is_double_skunk = false;
+		
+
 
 		if (wants_to_test == false) {
 			this.before_run_game();
@@ -53,11 +55,6 @@ public class Game {
 
 	}
 
-	public void before_run_game_test_use_predicable_die(Turn turn[], String player_name) {
-		this.turn_test = turn;
-		curent_player = new Player(INITIAL_CHIP_PER_PLAYER, player_name);
-
-	}
 
 	public void run_game(Boolean want_to_test) {
 		
@@ -181,7 +178,7 @@ public class Game {
 		
 	}
 
-	private void get_next_player() {
+	protected void get_next_player() {
 		if (current_player_number == (number_of_players - 1)) {
 			current_player_number = 0;
 		} else {
@@ -189,7 +186,7 @@ public class Game {
 		}
 	}
 
-	private void get_previous_player() {
+	protected void get_previous_player() {
 
 		if (current_player_number == 0) {
 			current_player_number = (number_of_players - 1);
@@ -242,7 +239,7 @@ public class Game {
 		}
 	}
 
-	private void continue_turn() {
+	protected void continue_turn() {
 		turn.continue_turn();
 		this.is_double_skunk = turn.is_double_skunk();
 		message_after_each_roll = player_names[current_player_number] + " - " + turn.get_message_after_each_roll();
@@ -264,5 +261,24 @@ public class Game {
 
 		return this.curent_player;
 	}
+	
+	public void set_last_turn (Turn turn) {
+		this.turn = turn;
+	}
+	
+	public void set_current_player_number (int i) {
+		this.current_player_number = i;}
+
+	
+	public int get_current_player_number () {
+		return current_player_number;
+	}
+
+	public Player[] get_players () {
+		return players;
+	}
+
+
+
 
 }
