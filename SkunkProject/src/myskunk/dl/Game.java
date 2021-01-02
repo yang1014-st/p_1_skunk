@@ -211,18 +211,9 @@ public class Game {
 		wants_to_roll = controller.ask_user_if_want_to_roll(wants_to_test, false);
 
 		this.turn = new Turn();
-		while (wants_to_roll) {
-			this.is_double_skunk = false;
-			continue_turn();
-			Controller.println(get_message_after_each_roll());
-			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
-				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
-			} else {
-				wants_to_roll = false;
-				break;
-
-			}
-		}
+		
+			complete_one_roll_for_one_player(want_to_test);
+		
 
 		turn.end_turn();
 
@@ -239,10 +230,33 @@ public class Game {
 				+ " - " + turn.get_message_after_each_turn() + "\n"
 				+ players[current_player_number].get_player_result();
 
-		if_not_test_then_print(want_to_test);
+		if_not_test_then_print_message_after_each_turn(want_to_test);
 	}
 
-	private void if_not_test_then_print(Boolean want_to_test) {
+	protected void complete_one_roll_for_one_player(Boolean want_to_test) {
+		while (wants_to_roll) {
+		this.is_double_skunk = false;
+		continue_turn();
+		
+		if_not_test_then_print(get_message_after_each_roll(),want_to_test);
+		
+		if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
+			if (want_to_test = false) {
+				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
+
+			}
+		} else {
+			wants_to_roll = false;
+			break;
+
+		}}
+	}
+	
+	private void if_not_test_then_print(String message,Boolean want_to_test) {
+		Controller.println(get_message_after_each_roll());
+	}
+
+	private void if_not_test_then_print_message_after_each_turn(Boolean want_to_test) {
 		if (want_to_test == false) {
 			controller.print_paragraph(get_message_after_each_turn());
 		}
@@ -291,6 +305,9 @@ public class Game {
 		return winner_score;
 	}
 
+	public void set_wants_to_roll(Boolean wants_to_role) {
+		this.wants_to_roll =  wants_to_role;
+	}
 
 
 }

@@ -52,8 +52,25 @@ class TestGame {
 	}
 	
 	@Test
-	void test_with_predictable_dice() {
-		fail();
+	void test_with_predictable_dice_1and3() {
+		Player[] players = new Player[3];
+		players[0]=new Player(20,"TestPlayer1");
+		String[] player_names = {"TestPlayer1"};
+		int number_of_players=1;
+		Game game = new Game(players, player_names,1,true);
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_1and3();
+		Roll roll = new Roll(dice);
+		Turn turn = new Turn();
+		game.set_last_turn(turn);
+		
+		
+		game.set_wants_to_roll(true);
+		game.complete_one_roll_for_one_player(true);
+		
+		assertEquals("TestPlayer1 - Roll1: One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",game.get_message_after_each_roll());
+		
+		
 	}
 
 }

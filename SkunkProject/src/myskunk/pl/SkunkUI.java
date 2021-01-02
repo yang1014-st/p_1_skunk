@@ -7,6 +7,7 @@ public class SkunkUI {
 	
 
 	public void println(String string) {
+		
 		StdOut.println(string);
 		
 	}
