@@ -47,9 +47,13 @@ class TestGame {
 		assertEquals(10,game.get_players()[0].get_total_chips());
 		assertEquals(15,game.get_players()[1].get_total_chips());
 
+
+		
+	}
 	
-		
-		
+	@Test
+	void test_with_predictable_dice() {
+		fail();
 	}
 
 }
