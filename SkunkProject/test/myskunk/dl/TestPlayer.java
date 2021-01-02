@@ -15,7 +15,7 @@ class TestPlayer {
 	}
 	
 	void test_set_chip() {
-		fail();
+		
 		Player player = new Player(100,"JIE");
 
 		player.set_game_score(20);
