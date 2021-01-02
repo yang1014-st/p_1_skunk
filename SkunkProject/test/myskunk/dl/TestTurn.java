@@ -20,11 +20,21 @@ class TestTurn {
 		assertEquals("Roll1: 4 => 2 + 2. Your turn score is 4.",turn.get_message_after_each_roll());
 	
 		
-	
 		turn.continue_turn_test(roll);
 		assertEquals("Roll2: 4 => 2 + 2. Your turn score is 8.",turn.get_message_after_each_roll());
 
 		
 	}
+	@Test
+	void test_with_predictable_die_1and1() {
+		PredictableDice dice = new PredictableDice();
+		dice.test_with_predictable_die_1and1();
+		Roll roll = new Roll(dice);
+		Turn turn = new Turn();
+		turn.test_set_last_turn(roll);
+		turn.start_turn();
+		
+		assertEquals("",turn.get_message_after_each_roll());
 
+	}
 }
