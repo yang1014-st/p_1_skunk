@@ -14,6 +14,7 @@ class TestPlayer {
 		assertEquals("JIE",player.get_name());
 	}
 	
+	@Test
 	void test_set_chip() {
 		
 		Player player = new Player(100,"JIE");
@@ -22,5 +23,13 @@ class TestPlayer {
 		assertEquals(20,player.get_game_score());
 	}
 
+	@Test
+	void test_lose_chip_in_a_turn() {
+		fail();
+		Player player = new Player(100,"JIE");
+		player.set_game_score(20);
+		player.lose_chip_in_a_turn(2);
+		assertEquals(98,player.get_total_chips());
+	}
 
 }

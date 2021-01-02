@@ -19,7 +19,7 @@ public class Player {
 	public Player(int number_of_chip, String player_name) {
 		this.initial_number_of_chip = number_of_chip;
 		this.player_name = player_name;
-		this.total_chips = number_of_chip;
+		this.total_chips=number_of_chip;
 		
 	}
 
@@ -33,10 +33,13 @@ public class Player {
 	}
 
 	
-	public int get_total_chipse() {
+	public int get_total_chips() {
 		return total_chips;
 	}
 	
+	public void add_chips(int i) {
+		total_chips = total_chips+i;
+	}
 
 
 	public void lose_chip_in_a_turn(int lose_chip_in_a_turn) {

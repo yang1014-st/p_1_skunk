@@ -125,7 +125,7 @@ public class Game {
 		controller.println("Player name -- Game score -- Total chips");
 		 for (int winner_number : winners) {
 				controller.println(player_names[winner_number] + " -- " + players[winner_number].get_game_score() + " -- "
-						+ players[winner_number].get_total_chipse());
+						+ players[winner_number].get_total_chips());
 							
 		 }
 	          
@@ -135,7 +135,7 @@ public class Game {
 		controller.println("Player name -- Game score -- Total chips");
 		for (int i=0; i<number_of_players;i++) {
 			controller.println(player_names[i] + " -- " + players[i].get_game_score() + " -- "
-					+ players[i].get_total_chipse());
+					+ players[i].get_total_chips());
 		}
 		
 		
@@ -171,7 +171,7 @@ public class Game {
 		
 		for (int i=0; i<number_of_players;i++) {
 			controller.println(player_names[i] + " -- " + players[i].get_game_score() + " -- "
-					+ players[i].get_total_chipse());
+					+ players[i].get_total_chips());
 		}
 		
 		controller.println("-----------------------------\n" + "End Game!" + "\n" );
