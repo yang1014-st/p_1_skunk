@@ -64,8 +64,8 @@ class TestGame {
 		Turn turn = new Turn();
 		game.set_last_turn(turn);
 		
-		
 		game.set_wants_to_roll(true);
+		
 		game.complete_one_roll_for_one_player(true);
 		
 		assertEquals("TestPlayer1 - Roll1: One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",game.get_message_after_each_roll());

@@ -206,13 +206,16 @@ public class Game {
 			if (want_to_test==false) {
 				continue_turn();
 			}
+			else {
+				set_last_turn(turn);
+			}
 			
 
 			if_not_test_then_print(get_message_after_each_roll(), want_to_test);
 
 			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
 
-				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, true);
+				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
 
 			} else {
 				wants_to_roll = false;
@@ -225,6 +228,8 @@ public class Game {
 	private void if_not_test_then_print(String message, Boolean want_to_test) {
 		Controller.println(get_message_after_each_roll());
 	}
+	
+
 
 	private void if_not_test_then_print_message_after_each_turn(Boolean want_to_test) {
 		if (want_to_test == false) {
@@ -257,6 +262,10 @@ public class Game {
 
 	public void set_last_turn(Turn turn) {
 		this.turn = turn;
+	}
+	
+	public Turn get_last_turn() {
+		return turn;
 	}
 
 	public void set_current_player_number(int i) {
