@@ -81,6 +81,7 @@ public class Turn {
 			this.start_turn();
 		}
 	}
+	
 
 	public int get_turn_score() {
 		return turn_score;
