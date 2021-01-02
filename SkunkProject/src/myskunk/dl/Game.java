@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import edu.princeton.cs.introcs.*;
 
 public class Game {
+	private static final int TRESHOOLD_TO_START_FINAL_TURN = 20;
 	private Turn turn;
 	private Player curent_player;
 	private int current_player_number = 0;
@@ -132,7 +133,7 @@ public class Game {
 		}
 
 		for (int i = 0; i < number_of_players; i++) {
-			Boolean not_more_than_100 = players[i].get_game_Score() < 100;
+			Boolean not_more_than_100 = players[i].get_game_Score() < TRESHOOLD_TO_START_FINAL_TURN;
 			game_not_over = game_not_over && not_more_than_100;
 		}
 	}
