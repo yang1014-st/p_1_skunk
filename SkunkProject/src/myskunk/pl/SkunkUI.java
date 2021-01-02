@@ -31,7 +31,7 @@ public class SkunkUI {
 	
 	}
 
-	public String promptReadAndReturn(String question) {
+	public String read_question_and_return_answer_from_user(String question) {
 		
 		StdOut.print(question + " => ");
 		String result = StdIn.readLine();

@@ -5,93 +5,235 @@ import java.util.ArrayList;
 import edu.princeton.cs.introcs.*;
 
 public class Game {
+	private static final int INITIAL_CHIP_PER_PLAYER = 50;
 	private static final int TRESHOOLD_TO_START_FINAL_TURN = 20;
-	private Turn turn;
+	private Controller controller;
 	private Player curent_player;
-	private int current_player_number = 0;
 	private Player players[];
+	private Turn turn;
+	private Turn turn_test[];
 	private String player_names[];
 	private String message_after_each_turn;
 	private String message_after_each_roll;
+	private ArrayList<Integer> winners = new ArrayList<Integer>();
+
 	private int number_of_players;
-	private Controller controller;
-	private Boolean game_not_over = true;
-	private Boolean turn_not_over = true;
-	private Boolean is_double_skunk=false;
+	private int current_player_number;
 
-	public Game(Player[] players, String[] player_names, int number_of_players) {
+	private Boolean game_not_over;
+	private Boolean turn_not_over;
+	private Boolean is_double_skunk;
+	private Boolean wants_to_roll;
 
-		this.number_of_players = number_of_players;
+	private Boolean wants_to_test;
+	private Turn turns_test[];
+	private String player_name_test;
+
+
+	public Game(Player[] players, String[] player_names, int number_of_players, Boolean wants_to_test) {
+
 		this.players = players;
 		this.player_names = player_names;
-		this.current_player_number = number_of_players;
-		this.run_game(false);
+		this.number_of_players = number_of_players;
+		this.wants_to_test = wants_to_test;
+		current_player_number = 0;
+		game_not_over = true;
+		turn_not_over = true;
+		is_double_skunk = false;
+
+		if (wants_to_test == false) {
+			this.before_run_game();
+		}
 
 	}
 
-	public Game(String player_name) {
-		turn = new Turn();
-		curent_player = new Player(50, player_name);
+	public void before_run_game() {
+		controller = new Controller();
+		this.run_game(wants_to_test);
 
 	}
 
-	public Game(Turn turn, String player_name) {
-		this.turn = turn;
-		curent_player = new Player(50, player_name);
+	public void before_run_game_test_use_predicable_die(Turn turn[], String player_name) {
+		this.turn_test = turn;
+		curent_player = new Player(INITIAL_CHIP_PER_PLAYER, player_name);
 
 	}
 
 	public void run_game(Boolean want_to_test) {
-		controller = new Controller();
-
+		
 		while (game_not_over) {
-			current_player_number = 0;
-
-			while ((turn_not_over == true || (current_player_number < number_of_players)) && game_not_over) {
-
-				start_turn();
-				controller.println("-----------------------------" + "\n" + player_names[current_player_number]
-						+ " - Your Turn starts:");
-
-				char wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test);
-
-				if (Character.toLowerCase(wants_to_roll) == 'y') {
-
-					while (Character.toLowerCase(wants_to_roll) == 'y') {
-						continue_turn();
-						Controller.println(get_message_after_each_roll());
-
-						if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
-							wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test);
-						}
-
-						else {
-							end_turn_with_skunk();
-
-							if_not_test_then_print(want_to_test);
-
-							break;
-						}
-					}
-
-					if (Character.toLowerCase(wants_to_roll) == 'n') {
-
-						end_turn_with_select_n();
-
-						if_not_test_then_print(want_to_test);
-					}
-
-				} else {
-					end_turn_with_select_n();
-
-					if_not_test_then_print(want_to_test);
-
-				}
-
+				
+			complete_one_turn_for_one_player(want_to_test);
+			
+			
+			if (players[current_player_number].get_game_score() > TRESHOOLD_TO_START_FINAL_TURN) {
+				game_not_over =false;
 			}
+			
+			get_next_player();
+			
+			
+		}
+		
+		controller.println("******************************\n" + "Last Run Starts!" + "\n" );
+		
+		for (int i =0; i<number_of_players-1;i++) {
+			complete_one_turn_for_one_player(want_to_test);
 
+			get_next_player();
+		}
+		
+
+		
+		get_previous_player();
+		
+		controller.println("******************************\n" + "Last Run Ends!" + "\n" );
+		
+				
+		
+	
+		int[] scores = new int[number_of_players];
+		for (int i=0; i<number_of_players;i++) {
+			scores[i] = players[i].get_game_score() ;
+		}
+		
+		int winner_score = scores[0]; 
+	
+		for (int i = 0; i < number_of_players; i++) {
+             if (scores[i] > winner_score) 
+             { winner_score = scores[i];
+             }
+        }
+		 
+		
+		
+		for (int i = 0; i < number_of_players; i++) {
+            if (scores[i] == winner_score) 
+            { 
+            	winners.add(i);
+            }
+       }
+		
+		
+		
+		
+		controller.println("-----------------------------\n" + "We have a winner!" );
+		controller.println("Winner is:" );
+		
+	
+
+		controller.println("Player name -- Game score -- Total chips");
+		 for (int winner_number : winners) {
+				controller.println(player_names[winner_number] + " -- " + players[winner_number].get_game_score() + " -- "
+						+ players[winner_number].get_total_chipse());
+							
+		 }
+	          
+
+		
+		controller.println("\nFinal scoreboard for this game before collecting chips:");
+		controller.println("Player name -- Game score -- Total chips");
+		for (int i=0; i<number_of_players;i++) {
+			controller.println(player_names[i] + " -- " + players[i].get_game_score() + " -- "
+					+ players[i].get_total_chipse());
+		}
+		
+		
+
+
+		controller.println("-----------------------------\n" + "winners collecting chips!" );
+		controller.println("lease press Enter to continue." );
+
+	
+		for (int i=0; i<number_of_players;i++) {
+			if (players[i].get_game_score()==0) {
+				players[i].lose_chip_in_a_turn(10);
+			}
+			
+			else if (players[i].get_game_score()!=winner_score) {
+				players[i].lose_chip_in_a_turn(5);
+			}			
+		}
+		
+		
+		int kitty_for_each_winner = Kitty.get_kitty()/winners.size();
+
+		 for (int winner_number : winners) {
+				players[winner_number].add_chip(kitty_for_each_winner);
+							
+		 }
+	          
+		
+		
+		
+		
+		controller.println("\nFinal scoreboard for this game after collecting chips:");
+		
+		for (int i=0; i<number_of_players;i++) {
+			controller.println(player_names[i] + " -- " + players[i].get_game_score() + " -- "
+					+ players[i].get_total_chipse());
+		}
+		
+		controller.println("-----------------------------\n" + "End Game!" + "\n" );
+	
+		
+		
+		
+	}
+
+	private void get_next_player() {
+		if (current_player_number == (number_of_players - 1)) {
+			current_player_number = 0;
+		} else {
+			current_player_number = current_player_number + 1;
+		}
+	}
+
+	private void get_previous_player() {
+
+		if (current_player_number == 0) {
+			current_player_number = (number_of_players - 1);
+		} else {
+			current_player_number = current_player_number - 1;
 		}
 
+	}
+
+	private void complete_one_turn_for_one_player(Boolean want_to_test) {
+		controller.println(
+				"-----------------------------" + "\n" + player_names[current_player_number] + " - Your Turn starts:");
+		wants_to_roll = controller.ask_user_if_want_to_roll(wants_to_test, false);
+
+		this.turn = new Turn();
+		while (wants_to_roll) {
+			this.is_double_skunk = false;
+			continue_turn();
+			Controller.println(get_message_after_each_roll());
+			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
+				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
+			} else {
+				wants_to_roll = false;
+				break;
+
+			}
+		}
+
+		turn.end_turn();
+
+		players[current_player_number].add_turn_score(turn.get_turn_score());
+		players[current_player_number].lose_chip_in_a_turn(turn.get_chip_number_to_lose());
+
+		if (this.is_double_skunk == true) {
+			players[current_player_number].set_game_score(0);
+		}
+
+		players[current_player_number].check_player_result();
+
+		this.message_after_each_turn = "-----------------------------" + "\n" + player_names[current_player_number]
+				+ " - " + turn.get_message_after_each_turn() + "\n"
+				+ players[current_player_number].get_player_result();
+
+		if_not_test_then_print(want_to_test);
 	}
 
 	private void if_not_test_then_print(Boolean want_to_test) {
@@ -100,63 +242,10 @@ public class Game {
 		}
 	}
 
-	private void end_turn_with_select_n() {
-		this.end_turn();
-
-		this.message_after_each_turn = "You did not select 'y'." + "\n" + message_after_each_turn + "\n"
-				+ "End of your Turn Summary.";
-	}
-
-	private void end_turn_with_skunk() {
-		this.end_turn();
-		this.message_after_each_turn = message_after_each_turn + "\n" + "End of your Turn Summary.";
-	}
-
-	private void end_turn() {
-		turn.end_turn();
-		turn_not_over = false;
-		players[current_player_number].add_turn_score(turn.get_turn_score());
-		players[current_player_number].lose_chip_in_a_turn(turn.get_chip_number_to_lose());
-		players[current_player_number].check_player_result();
-		
-		if (this.is_double_skunk == true) {
-			players[current_player_number].set_game_score(0);
-		}
-		
-		this.message_after_each_turn = "-----------------------------" + "\n" + player_names[current_player_number]
-				+ " - " + turn.get_message_after_each_turn() + "\n"
-				+ players[current_player_number].get_player_result();
-		if (current_player_number == (number_of_players - 1)) {
-			current_player_number = 0;
-		} else {
-			current_player_number = current_player_number + 1;
-		}
-
-		for (int i = 0; i < number_of_players; i++) {
-			Boolean not_more_than_100 = players[i].get_game_Score() < TRESHOOLD_TO_START_FINAL_TURN;
-			game_not_over = game_not_over && not_more_than_100;
-		}
-	}
-
 	private void continue_turn() {
 		turn.continue_turn();
 		this.is_double_skunk = turn.is_double_skunk();
 		message_after_each_roll = player_names[current_player_number] + " - " + turn.get_message_after_each_roll();
-	}
-
-	private void start_turn() {
-		this.turn = new Turn();
-		this.is_double_skunk=false;
-	}
-
-	protected void continue_game() {
-		turn.continue_turn();
-		message_after_each_roll = this.curent_player.get_name() + " - " + turn.get_message_after_each_roll();
-	}
-
-	protected void continue_game(Turn roll) {
-		turn.continue_turn(turn.getLastRoll());
-		message_after_each_roll = this.curent_player.get_name() + " - " + turn.get_message_after_each_roll();
 	}
 
 	public Turn get_turn() {
