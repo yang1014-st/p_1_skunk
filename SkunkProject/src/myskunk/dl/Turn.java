@@ -27,16 +27,8 @@ public class Turn {
 
 	}
 
-	public Turn(Roll roll) {
+	public void test_set_last_turn(Roll roll) {
 		this.lastRoll = roll;
-		this.turn_score = 0;
-		chip_number_to_lose = 0;
-		stop_roll = false;
-		message_after_each_roll = "";
-		message_summary_each_roll = "";
-		message_after_each_turn ="";
-		roll_number = 0;
-		
 	}
 
 	protected void start_turn() {
@@ -80,10 +72,7 @@ public class Turn {
 	}
 
 	protected void continue_turn_test(Roll roll) {
-		if (stop_roll == false) {
-			this.lastRoll = roll;
-			this.start_turn();
-		}
+		this.start_turn();
 	}
 
 	protected void continue_turn() {
