@@ -6,7 +6,7 @@ import edu.princeton.cs.introcs.*;
 
 public class Game {
 	private static final int INITIAL_CHIP_PER_PLAYER = 50;
-	private static final int TRESHOOLD_TO_START_FINAL_TURN = 20;
+	private static final int TRESHOOLD_TO_START_FINAL_TURN = 100;
 	private Controller controller;
 	private Player curent_player;
 	private Player players[];
