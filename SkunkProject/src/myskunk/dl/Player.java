@@ -37,9 +37,6 @@ public class Player {
 		return total_chips;
 	}
 	
-	public void add_chipse(int i) {
-		total_chips = total_chips+i;
-	}
 
 
 	public void lose_chip_in_a_turn(int lose_chip_in_a_turn) {
