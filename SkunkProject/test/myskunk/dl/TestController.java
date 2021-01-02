@@ -23,7 +23,7 @@ class TestController {
 		Controller controller = new Controller();
 		controller.before_run(true);
 		assertEquals(true,controller.ask_user_if_want_to_roll(true, true));
-		assertEquals(false,controller.ask_user_if_want_to_roll(true, true));
+		assertEquals(false,controller.ask_user_if_want_to_roll(true, false));
 
 	}
 	
