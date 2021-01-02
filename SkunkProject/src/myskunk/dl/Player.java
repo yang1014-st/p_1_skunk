@@ -19,6 +19,7 @@ public class Player {
 	public Player(int number_of_chip, String player_name) {
 		this.initial_number_of_chip = number_of_chip;
 		this.player_name = player_name;
+		this.total_chips = number_of_chip;
 		
 	}
 
