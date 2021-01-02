@@ -18,7 +18,7 @@ public class Controller {
 	private String player_names[];
 	private Player players[];
 
-	public void run() {
+	public void before_run(Boolean want_to_test) {
 		ui = new SkunkUI();
 		ui.println("Welcome to play Skunk!");
 		String input_number_of_players = ask_users("How many playsers?");
@@ -30,10 +30,16 @@ public class Controller {
 			player_names[playerNumber] = ask_users("Enter name of player " + (playerNumber + 1) + ": ");
 			players[playerNumber] = new Player(50, player_names[playerNumber]);
 		}
-		game = new Game(players, player_names, number_of_players, false);
-		
+		this.wants_to_test = want_to_test;
+		game = new Game(players, player_names, number_of_players, wants_to_test);
 
 	}
+	
+	protected Game get_game() {
+		return this.game;
+	}
+	
+
 
 	private String ask_users(String question) {
 		String input_number_of_players = ui.read_question_and_return_answer_from_user(question);

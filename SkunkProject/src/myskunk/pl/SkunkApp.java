@@ -6,7 +6,7 @@ public class SkunkApp {
 	public static void main(String[] args) {
 
 		Controller controller = new Controller();
-		controller.run();
+		controller.before_run(false);
 	
 	
 		
