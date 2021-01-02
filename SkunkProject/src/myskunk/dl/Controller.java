@@ -7,9 +7,7 @@ import edu.princeton.cs.introcs.StdOut;
 import myskunk.pl.SkunkUI;
 
 public class Controller {
-	private static char wants_to_roll;
-	private static char wants_to_roll_test;
-	private String turn_result;
+
 	private Game game;
 
 	private Boolean wants_to_test = false;
@@ -62,7 +60,7 @@ public class Controller {
 	protected Boolean ask_user_if_want_to_roll(Boolean want_to_test, Boolean wants_to_roll_test) {
 
 		if (this.wants_to_test == false) {
-			char wants_to_roll;
+			
 			try {
 
 				if (ask_users("Do you want to roll? y/n ").toLowerCase().charAt(0) == 'y') {
