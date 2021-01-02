@@ -23,6 +23,11 @@ class TestTurn {
 		turn.continue_turn_test(roll);
 		assertEquals("Roll2: 4 => 2 + 2. Your turn score is 8.",turn.get_message_after_each_roll());
 
+		turn.end_turn();
+		assertEquals("Your Turn ends. In this turn, your turn score is 8. You lost 0 chips.\n" + 
+				"Start of your Turn Summary:\n" + 
+				"Roll1: 4 => 2 + 2. Your turn score is 4.\n" + 
+				"Roll2: 4 => 2 + 2. Your turn score is 8.",turn.get_message_after_each_turn());
 		
 	}
 	@Test
@@ -72,12 +77,13 @@ class TestTurn {
 		turn.test_set_last_turn(roll);
 		turn.start_turn();
 		
-		assertEquals("Roll1: Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.",turn.get_message_after_each_roll());
-
+		assertEquals("Roll1: One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",turn.get_message_after_each_roll());
+		assertEquals(false, turn.is_double_skunk());
+		
 		turn.end_turn();
-		assertEquals("Your Turn ends. In this turn, your turn score is 0. You lost 2 chips.\n" + 
+		assertEquals("Your Turn ends. In this turn, your turn score is 0. You lost 1 chips.\n" + 
 				"Start of your Turn Summary:\n" + 
-				"Roll1: Deuce Skunk! You lose the turn. Your turn score is 0. You need to pay 2 chip to the kitty.",turn.get_message_after_each_turn());
+				"Roll1: One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",turn.get_message_after_each_turn());
 		
 	}
 }
