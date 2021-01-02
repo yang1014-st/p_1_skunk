@@ -34,7 +34,12 @@ class TestTurn {
 		turn.test_set_last_turn(roll);
 		turn.start_turn();
 		
-		assertEquals("",turn.get_message_after_each_roll());
+		assertEquals("Roll1: Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.",turn.get_message_after_each_roll());
 
+		turn.end_turn();
+		assertEquals("Your Turn ends. In this turn, your turn score is 0. You lost 4 chips.\n" + 
+				"Start of your Turn Summary:\n" + 
+				"Roll1: Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.",turn.get_message_after_each_turn());
+		
 	}
 }
