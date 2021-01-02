@@ -8,7 +8,7 @@ class TestTurn {
 
 	@Test
 	void test_with_predictable_die_2and2_2and3() {
-		fail();
+		
 		PredictableDice dice = new PredictableDice();
 		dice.test_with_predictable_die_2and2();
 		Roll roll = new Roll(dice);
