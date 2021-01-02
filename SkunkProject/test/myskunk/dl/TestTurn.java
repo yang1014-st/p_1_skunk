@@ -42,4 +42,9 @@ class TestTurn {
 				"Roll1: Double Skunk! You lose the turn. Your turn score is 0. You need to pay 4 chip to the kitty.",turn.get_message_after_each_turn());
 		
 	}
+	
+	@Test
+	void test_with_predictable_die_1and2() {
+		fail();
+	}
 }
