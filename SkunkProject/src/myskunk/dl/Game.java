@@ -59,7 +59,7 @@ public class Game {
 
 			complete_one_turn_for_one_player(want_to_test);
 
-			if (players[current_player_number].get_game_score() > TRESHOOLD_TO_START_FINAL_TURN) {
+			if (players[current_player_number].get_game_score() >= TRESHOOLD_TO_START_FINAL_TURN) {
 				game_not_over = false;
 			}
 

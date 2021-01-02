@@ -22,6 +22,11 @@ public class Controller {
 
 		if (want_to_test == false) {
 			ui.println("Welcome to play Skunk!");
+			if ( ask_users("Do you want to view the rule? y/n").toLowerCase().charAt(0) == 'y') {
+				ui.println("You chose to view the rule, but I don't want to display");
+			};
+			
+			
 			String input_number_of_players = ask_users("How many playsers?");
 			create_players_players_names(input_number_of_players, wants_to_test);
 
