@@ -142,7 +142,7 @@ public class Game {
 
 
 		controller.println("-----------------------------\n" + "winners collecting chips!" );
-		controller.println("lease press Enter to continue." );
+		controller.println("Please press Enter to continue." );
 
 	
 		for (int i=0; i<number_of_players;i++) {
