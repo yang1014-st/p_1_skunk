@@ -86,4 +86,9 @@ class TestTurn {
 				"Roll1: One Skunk! You lose the turn. Your turn score is 0. You need to pay 1 chip to the kitty.",turn.get_message_after_each_turn());
 		
 	}
+	
+	@Test
+	void test_with_normal_die() {
+		fail();
+	}
 }
