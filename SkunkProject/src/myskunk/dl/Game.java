@@ -19,6 +19,7 @@ public class Game {
 
 	private int number_of_players;
 	private int current_player_number;
+	private int winner_score ;
 
 	private Boolean game_not_over;
 	private Boolean turn_not_over;
@@ -94,7 +95,7 @@ public class Game {
 			scores[i] = players[i].get_game_score() ;
 		}
 		
-		int winner_score = scores[0]; 
+		winner_score 	= scores[0]; 
 	
 		for (int i = 0; i < number_of_players; i++) {
              if (scores[i] > winner_score) 
@@ -142,23 +143,7 @@ public class Game {
 		controller.println("Please press Enter to continue." );
 
 	
-		for (int i=0; i<number_of_players;i++) {
-			if (players[i].get_game_score()==0) {
-				players[i].lose_chip_in_a_turn(10);
-			}
-			
-			else if (players[i].get_game_score()!=winner_score) {
-				players[i].lose_chip_in_a_turn(5);
-			}			
-		}
-		
-		
-		int kitty_for_each_winner = Kitty.get_kitty()/winners.size();
-
-		 for (int winner_number : winners) {
-				players[winner_number].add_chip(kitty_for_each_winner);
-							
-		 }
+		exchange_kitty(winner_score);
 	          
 		
 		
@@ -176,6 +161,26 @@ public class Game {
 		
 		
 		
+	}
+
+	private void exchange_kitty(int winner_score) {
+		for (int i=0; i<number_of_players;i++) {
+			if (players[i].get_game_score()==0) {
+				players[i].lose_chip_in_a_turn(10);
+			}
+			
+			else if (players[i].get_game_score()!=winner_score) {
+				players[i].lose_chip_in_a_turn(5);
+			}			
+		}
+		
+		
+		int kitty_for_each_winner = Kitty.get_kitty()/winners.size();
+
+		 for (int winner_number : winners) {
+				players[winner_number].add_chip(kitty_for_each_winner);
+							
+		 }
 	}
 
 	protected void get_next_player() {
@@ -278,6 +283,9 @@ public class Game {
 		return players;
 	}
 
+	protected void set_winner_score(int i) {
+		this.winner_score = i;
+	}
 
 
 

@@ -31,8 +31,17 @@ class TestGame {
 		assertEquals(1,game.get_current_player_number());
 		assertEquals("TestPlayer1",game.get_players()[0].get_name());
 		assertEquals(0,game.get_turn().get_turn_score());
-		game.continue_turn();
-		assertEquals("TestPlayer2 - Roll1: 7 => 2 + 5. Your turn score is 7.",game.get_message_after_each_roll());
+		
+		game.get_players()[0].set_game_score(0);
+		game.get_players()[1].set_game_score(10);
+		game.get_players()[2].set_game_score(20);
+		
+		exchange_kitty(winner_score);
+
+
+		
+	
+		
 		
 		
 	}
