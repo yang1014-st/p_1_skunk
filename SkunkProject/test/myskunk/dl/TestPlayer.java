@@ -10,7 +10,7 @@ class TestPlayer {
 	void test_initiate_player() {
 		Player player = new Player(100,"JIE");
 		player.add_chip(5);
-		assertEquals(105, player.get_total_chipse());
+		assertEquals(105, player.get_total_chips());
 		assertEquals("JIE",player.get_name());
 	}
 	
@@ -25,7 +25,7 @@ class TestPlayer {
 
 	@Test
 	void test_lose_chip_in_a_turn() {
-		fail();
+		
 		Player player = new Player(100,"JIE");
 		player.set_game_score(20);
 		player.lose_chip_in_a_turn(2);
