@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class TestGame {
 
 	@Test
-	void test_() {
+	void test_with_players() {
 		Player[] players = new Player[3];
 		players[0]=new Player(20,"TestPlayer1");
 		players[1]=new Player (20,"TestPlayer2");
@@ -47,12 +47,7 @@ class TestGame {
 		assertEquals(10,game.get_players()[0].get_total_chips());
 		assertEquals(15,game.get_players()[1].get_total_chips());
 
-		
-
-
-		
 	
-		
 		
 		
 	}
