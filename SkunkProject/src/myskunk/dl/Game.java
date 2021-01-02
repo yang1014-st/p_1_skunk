@@ -183,6 +183,16 @@ public class Game {
 
 		turn.end_turn();
 
+		players_get_reult_after_turn_ends();
+
+		this.message_after_each_turn = "-----------------------------" + "\n" + player_names[current_player_number]
+				+ " - " + turn.get_message_after_each_turn() + "\n"
+				+ players[current_player_number].get_player_result();
+
+		if_not_test_then_print_message_after_each_turn(want_to_test);
+	}
+
+	void players_get_reult_after_turn_ends() {
 		players[current_player_number].add_turn_score(turn.get_turn_score());
 		players[current_player_number].lose_chip_in_a_turn(turn.get_chip_number_to_lose());
 
@@ -191,12 +201,6 @@ public class Game {
 		}
 
 		players[current_player_number].check_player_result();
-
-		this.message_after_each_turn = "-----------------------------" + "\n" + player_names[current_player_number]
-				+ " - " + turn.get_message_after_each_turn() + "\n"
-				+ players[current_player_number].get_player_result();
-
-		if_not_test_then_print_message_after_each_turn(want_to_test);
 	}
 
 	protected void complete_one_roll_for_one_player(Boolean want_to_test) {
@@ -213,9 +217,13 @@ public class Game {
 
 			if_not_test_then_print(get_message_after_each_roll(), want_to_test);
 
-			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
+			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk" ) {
+				
+				if (wants_to_test == false) {
+					wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
 
-				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
+				}
+
 
 			} else {
 				wants_to_roll = false;
@@ -264,9 +272,7 @@ public class Game {
 		this.turn = turn;
 	}
 	
-	public Turn get_last_turn() {
-		return turn;
-	}
+
 
 	public void set_current_player_number(int i) {
 		this.current_player_number = i;
@@ -288,5 +294,7 @@ public class Game {
 		this.wants_to_roll = b;
 
 	}
+	
+
 
 }

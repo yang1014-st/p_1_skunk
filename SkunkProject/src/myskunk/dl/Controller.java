@@ -57,7 +57,7 @@ public class Controller {
 		return input_number_of_players;
 	}
 
-	protected Boolean ask_user_if_want_to_roll(Boolean want_to_test, Boolean wants_to_roll_test) {
+	protected Boolean ask_user_if_want_to_roll(Boolean want_to_test, Boolean wants_to_roll_test_roll) {
 
 		if (this.wants_to_test == false) {
 			
@@ -73,7 +73,7 @@ public class Controller {
 				return false;
 			}
 		} else {
-			return wants_to_roll_test;
+			return wants_to_roll_test_roll;
 		}
 
 	}
