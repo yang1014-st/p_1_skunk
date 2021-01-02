@@ -240,11 +240,9 @@ public class Game {
 		
 		if_not_test_then_print(get_message_after_each_roll(),want_to_test);
 		
+	
 		if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
-			if (want_to_test = false) {
-				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
-
-			}
+			wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
 		} else {
 			wants_to_roll = false;
 			break;
@@ -305,9 +303,6 @@ public class Game {
 		return winner_score;
 	}
 
-	public void set_wants_to_roll(Boolean wants_to_role) {
-		this.wants_to_roll =  wants_to_role;
-	}
 
 
 }
