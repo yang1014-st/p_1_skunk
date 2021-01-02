@@ -19,7 +19,7 @@ public class Game {
 
 	private int number_of_players;
 	private int current_player_number;
-	private int winner_score ;
+	private int winner_score;
 
 	private Boolean game_not_over;
 	private Boolean turn_not_over;
@@ -29,7 +29,6 @@ public class Game {
 	private Boolean wants_to_test;
 	private Turn turns_test[];
 	private String player_name_test;
-
 
 	public Game(Player[] players, String[] player_names, int number_of_players, Boolean wants_to_test) {
 
@@ -41,8 +40,6 @@ public class Game {
 		game_not_over = true;
 		turn_not_over = true;
 		is_double_skunk = false;
-		
-
 
 		if (wants_to_test == false) {
 			this.before_run_game();
@@ -56,135 +53,105 @@ public class Game {
 
 	}
 
-
 	public void run_game(Boolean want_to_test) {
-		
+
 		while (game_not_over) {
-				
+
 			complete_one_turn_for_one_player(want_to_test);
-			
-			
+
 			if (players[current_player_number].get_game_score() > TRESHOOLD_TO_START_FINAL_TURN) {
-				game_not_over =false;
+				game_not_over = false;
 			}
-			
+
 			get_next_player();
-			
-			
+
 		}
-		
-		controller.println("******************************\n" + "Last Run Starts!" + "\n" );
-		
-		for (int i =0; i<number_of_players-1;i++) {
+
+		controller.println("******************************\n" + "Last Run Starts!" + "\n");
+
+		for (int i = 0; i < number_of_players - 1; i++) {
 			complete_one_turn_for_one_player(want_to_test);
 
 			get_next_player();
 		}
-		
 
-		
 		get_previous_player();
-		
-		controller.println("******************************\n" + "Last Run Ends!" + "\n" );
-		
-				
-		
-	
+
+		controller.println("******************************\n" + "Last Run Ends!" + "\n");
+
 		get_winners_numbers();
-		
-		
-		
-		
-		controller.println("-----------------------------\n" + "We have a winner!" );
-		controller.println("Winner is:" );
-		
-	
+
+		controller.println("-----------------------------\n" + "We have a winner!");
+		controller.println("Winner is:");
 
 		controller.println("Player name -- Game score -- Total chips");
-		 for (int winner_number : winners) {
-				controller.println(player_names[winner_number] + " -- " + players[winner_number].get_game_score() + " -- "
-						+ players[winner_number].get_total_chips());
-							
-		 }
-	          
+		for (int winner_number : winners) {
+			controller.println(player_names[winner_number] + " -- " + players[winner_number].get_game_score() + " -- "
+					+ players[winner_number].get_total_chips());
 
-		
+		}
+
 		controller.println("\nFinal scoreboard for this game before collecting chips:");
 		controller.println("Player name -- Game score -- Total chips");
-		for (int i=0; i<number_of_players;i++) {
-			controller.println(player_names[i] + " -- " + players[i].get_game_score() + " -- "
-					+ players[i].get_total_chips());
+		for (int i = 0; i < number_of_players; i++) {
+			controller.println(
+					player_names[i] + " -- " + players[i].get_game_score() + " -- " + players[i].get_total_chips());
 		}
-		
-		
 
+		controller.println("-----------------------------\n" + "winners collecting chips!");
+		controller.println("Please press Enter to continue.");
 
-		controller.println("-----------------------------\n" + "winners collecting chips!" );
-		controller.println("Please press Enter to continue." );
-
-	
 		exchange_kitty(winner_score);
-	          
-		
-		
-		
-		
+
 		controller.println("\nFinal scoreboard for this game after collecting chips:");
-		
-		for (int i=0; i<number_of_players;i++) {
-			controller.println(player_names[i] + " -- " + players[i].get_game_score() + " -- "
-					+ players[i].get_total_chips());
+
+		for (int i = 0; i < number_of_players; i++) {
+			controller.println(
+					player_names[i] + " -- " + players[i].get_game_score() + " -- " + players[i].get_total_chips());
 		}
-		
-		controller.println("-----------------------------\n" + "End Game!" + "\n" );
-	
-		
-		
-		
+
+		controller.println("-----------------------------\n" + "End Game!" + "\n");
+
 	}
 
 	protected void get_winners_numbers() {
 		int[] scores = new int[number_of_players];
-		for (int i=0; i<number_of_players;i++) {
-			scores[i] = players[i].get_game_score() ;
+		for (int i = 0; i < number_of_players; i++) {
+			scores[i] = players[i].get_game_score();
 		}
-		
-		winner_score 	= scores[0]; 
-	
+
+		winner_score = scores[0];
+
 		for (int i = 0; i < number_of_players; i++) {
-             if (scores[i] > winner_score) 
-             { winner_score = scores[i];
-             }
-        }
-		 
-		
-		
+			if (scores[i] > winner_score) {
+				winner_score = scores[i];
+			}
+		}
+
 		for (int i = 0; i < number_of_players; i++) {
-            if (scores[i] == winner_score) 
-            { 
-            	winners.add(i);
-            }
-       }
+			if (scores[i] == winner_score) {
+				winners.add(i);
+			}
+		}
 	}
 
 	protected void exchange_kitty(int winner_score) {
-		for (int i=0; i<number_of_players;i++) {
-			if (players[i].get_game_score()==0) {
+		for (int i = 0; i < number_of_players; i++) {
+			if (players[i].get_game_score() == 0) {
 				players[i].lose_chip_in_a_turn(10);
 			}
-			
-			else if (players[i].get_game_score()!=winner_score) {
-				players[i].lose_chip_in_a_turn(5);
-			}			
-		}
-		
-		
-		int kitty_for_each_winner = Kitty.get_kitty()/winners.size();
 
-		 for (int winner_number : winners) {
-				players[winner_number].add_chip(kitty_for_each_winner);
-							
-		 }
+			else if (players[i].get_game_score() != winner_score) {
+				players[i].lose_chip_in_a_turn(5);
+			}
+		}
+
+		int kitty_for_each_winner = Kitty.get_kitty() / winners.size();
+
+		for (int winner_number : winners) {
+			players[winner_number].add_chip(kitty_for_each_winner);
+
+		}
 	}
 
 	protected void get_next_player() {
@@ -211,9 +178,8 @@ public class Game {
 		wants_to_roll = controller.ask_user_if_want_to_roll(wants_to_test, false);
 
 		this.turn = new Turn();
-		
-			complete_one_roll_for_one_player(want_to_test);
-		
+
+		complete_one_roll_for_one_player(want_to_test);
 
 		turn.end_turn();
 
@@ -235,22 +201,28 @@ public class Game {
 
 	protected void complete_one_roll_for_one_player(Boolean want_to_test) {
 		while (wants_to_roll) {
-		this.is_double_skunk = false;
-		continue_turn();
-		
-		if_not_test_then_print(get_message_after_each_roll(),want_to_test);
-		
-	
-		if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
-			wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
-		} else {
-			wants_to_roll = false;
-			break;
+			this.is_double_skunk = false;
+			
+			if (want_to_test==false) {
+				continue_turn();
+			}
+			
 
-		}}
+			if_not_test_then_print(get_message_after_each_roll(), want_to_test);
+
+			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
+
+				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, true);
+
+			} else {
+				wants_to_roll = false;
+				break;
+
+			}
+		}
 	}
-	
-	private void if_not_test_then_print(String message,Boolean want_to_test) {
+
+	private void if_not_test_then_print(String message, Boolean want_to_test) {
 		Controller.println(get_message_after_each_roll());
 	}
 
@@ -282,20 +254,20 @@ public class Game {
 
 		return this.curent_player;
 	}
-	
-	public void set_last_turn (Turn turn) {
+
+	public void set_last_turn(Turn turn) {
 		this.turn = turn;
 	}
-	
-	public void set_current_player_number (int i) {
-		this.current_player_number = i;}
 
-	
-	public int get_current_player_number () {
+	public void set_current_player_number(int i) {
+		this.current_player_number = i;
+	}
+
+	public int get_current_player_number() {
 		return current_player_number;
 	}
 
-	public Player[] get_players () {
+	public Player[] get_players() {
 		return players;
 	}
 
@@ -303,6 +275,9 @@ public class Game {
 		return winner_score;
 	}
 
+	public void set_wants_to_roll(boolean b) {
+		this.wants_to_roll = b;
 
+	}
 
 }
