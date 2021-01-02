@@ -212,7 +212,16 @@ public class Game {
 
 		this.turn = new Turn();
 		while (wants_to_roll) {
-			complete_one_roll_for_a_player(want_to_test);
+			this.is_double_skunk = false;
+			continue_turn();
+			Controller.println(get_message_after_each_roll());
+			if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
+				wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
+			} else {
+				wants_to_roll = false;
+				break;
+
+			}
 		}
 
 		turn.end_turn();
@@ -231,19 +240,6 @@ public class Game {
 				+ players[current_player_number].get_player_result();
 
 		if_not_test_then_print(want_to_test);
-	}
-
-	private void complete_one_roll_for_a_player(Boolean want_to_test) {
-		this.is_double_skunk = false;
-		continue_turn();
-		Controller.println(get_message_after_each_roll());
-		if (turn.getLastRoll().get_result_of_check_skunk() == "not skunk") {
-			wants_to_roll = controller.ask_user_if_want_to_roll(want_to_test, false);
-		} else {
-			wants_to_roll = false;
-			break;
-
-		}
 	}
 
 	private void if_not_test_then_print(Boolean want_to_test) {
@@ -293,10 +289,6 @@ public class Game {
 
 	public int get_winner_score() {
 		return winner_score;
-	}
-	
-	public void set_wants_to_roll(Boolean wants_to_roll) {
-		this.wants_to_roll= wants_to_roll;
 	}
 
 
