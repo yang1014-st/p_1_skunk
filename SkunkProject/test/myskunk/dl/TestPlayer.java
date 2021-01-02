@@ -48,6 +48,6 @@ class TestPlayer {
 		player.add_turn_score(20);
 		player.lose_chip_in_a_turn(2);
 		player.check_player_result();
-		assertEquals("",player.get_player_result());
+		assertEquals("JIE - Your previous game score is 20. Your game score is 40. You lost 2 chips. You have 98 chips.",player.get_player_result());
 	}
 }
